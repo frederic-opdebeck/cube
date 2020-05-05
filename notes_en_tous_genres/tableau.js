@@ -4,18 +4,21 @@ tab =
 [
     ['question' => 'tu vas bien ?'
     ,
+    'reponse' =>  ['oui','non'],
+    'id' => '02082034',
+    'path' => 'Q0'
+    ],
+
+    ['question' => 'Vas-tu aller faire ton jogging ?', 
     'reponse' =>  ['oui','non','je sais pas'],
-    'id' => '02082034'
+    'id' => 'uyft',
+     'path' => 'Q0>R1>Q1'
     ],
 
-    ['question' => 'quelle est ta couleur préférée ?', 
-    'reponse' =>  ['bleu','rouge','vert'],
-    'id' => 'uyft'
-    ],
-
-    ['question' => 'quelle est ta couleur préférée ?', 
-    'reponse' =>  ['bleu','rouge','vert'],
-    'id' => 'gflig'
+    ['question' => 'Vas-tu aller voir le docteur ?', 
+    'reponse' =>  ['oui','non'],
+    'id' => 'gflig',
+     'path' => 'Q0>R2>Q2'
     ]
 ]
 
