@@ -7,8 +7,7 @@ class BlocReponse {
     formReponse() {
         
 
-        let form = document.createElement('form');
-        document.body.appendChild(form);
+        let form = document.getElementById('formQuestion');
 
         let inputSubmit = document.createElement('input');
 
@@ -43,8 +42,7 @@ class BlocReponse {
 }
 
 class BlocQuestion {
-    constructor(numQ, textBoutton) {
-        this.numQ = numQ;
+    constructor(textBoutton) {
         this.textBoutton = textBoutton;
         this.formQuestion(this.numQ, this.textBoutton);
     }
@@ -62,9 +60,11 @@ class BlocQuestion {
 
         form.setAttribute('class', 'formQuestion');
         form.setAttribute('method', 'POST');
+        form.setAttribute('id','formQuestion');
 
         inputText.setAttribute('type', 'text');
-        inputText.setAttribute('name', 'q'+numQ);
+        inputText.setAttribute('class', 'question');
+        inputText.setAttribute('name', 'question');
         inputText.setAttribute('value', 'question?');
 
         inputSubmit.setAttribute('type', 'submit');
@@ -75,14 +75,8 @@ class BlocQuestion {
     }
 
     formReponse() {
-        
-        let submit = document.getElementById('questionSubmit');
-        submit.addEventListener('click', (e) => {
-            e.preventDefault();
-            let formReponse = new BlocReponse('Ajouter une réponse');
-        });
-        
+        let formReponse = new BlocReponse('Ajouter une réponse');
     }
 }
 
-let blocQuestion = new BlocQuestion(1, 'Envoyer ma question');
+let blocQuestion = new BlocQuestion('Envoyer ma question');
