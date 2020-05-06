@@ -12,12 +12,17 @@ class BlocReponse {
         let button = document.createElement('button');
         let divReponse = document.createElement('div');
         let inputSubmit = document.createElement('input');
+        let pReponse = document.createElement('p');
 
+        form.appendChild(pReponse);
         form.appendChild(button);
         form.appendChild(divReponse);
         form.appendChild(inputSubmit);
 
         divReponse.setAttribute('id', 'divReponse');
+
+        pReponse.setAttribute('class', 'pReponse');
+        pReponse.textContent = "Ecrivez vos réponse: ";
 
         button.textContent = this.textBoutton;
         button.setAttribute('name', 'reponseSubmit');
@@ -60,13 +65,10 @@ class BlocQuestion {
         let div = document.getElementById('addBloc');
         let divQuestion = document.createElement('div');
         
-
-        
         div.appendChild(form);
         form.appendChild(divQuestion);
         divQuestion.appendChild(labelQuestion);
         divQuestion.appendChild(inputText);
-        
 
         form.setAttribute('class', 'formQuestion');
         form.setAttribute('method', 'POST');
@@ -74,6 +76,7 @@ class BlocQuestion {
 
         labelQuestion.setAttribute('id', 'labelQuestion');
         labelQuestion.setAttribute('for', 'question');
+        labelQuestion.textContent = "Ecrivez votre question: ";
 
         divQuestion.setAttribute('class', 'divQuestion');
 
@@ -83,7 +86,6 @@ class BlocQuestion {
         inputText.setAttribute('value', 'question?');
         inputText.setAttribute('id','question');
 
-        
         this.formReponse();
         
     }
