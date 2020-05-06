@@ -22,7 +22,7 @@ class BlocReponse {
         divReponse.setAttribute('id', 'divReponse');
 
         pReponse.setAttribute('class', 'pReponse');
-        pReponse.textContent = "Ecrivez vos réponse: ";
+        pReponse.textContent = "Ecrivez vos réponses: ";
 
         button.textContent = this.textBoutton;
         button.setAttribute('name', 'reponseSubmit');
