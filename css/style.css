@@ -14,9 +14,12 @@
 #formQuestion div:nthchild(2) p{
     font-size:16px;
 }
-{
-   font-size:16px;
+#formQuestion div:nthchild(1){
+    width: 100%;
+    height: 40px;
+    padding: 5px 0px;
 }
+
 #formQuestion button {
     font-size:14px;
     padding: 3px;
