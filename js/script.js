@@ -6,7 +6,6 @@ class BlocReponse {
 
     formReponse() {
         
-
         let form = document.getElementById('formQuestion');
 
         let button = document.createElement('button');
@@ -15,8 +14,8 @@ class BlocReponse {
         let pReponse = document.createElement('p');
         let firstInput = document.createElement('input');
         
-        form.appendChild(pReponse);
-        form.appendChild(button);
+        divReponse.appendChild(button);
+        divReponse.appendChild(pReponse);
         form.appendChild(divReponse);
         divReponse.appendChild(firstInput);
         form.appendChild(inputSubmit);
@@ -37,6 +36,7 @@ class BlocReponse {
         firstInput.setAttribute('class', 'reponse');
         firstInput.setAttribute('type', 'text');
         firstInput.setAttribute('name', 'reponse0');
+        firstInput.setAttribute('placeholder', 'Votre réponse');
 
         let numeroReponse = 1;
         button.addEventListener('click', (e) =>{
@@ -53,6 +53,7 @@ class BlocReponse {
         inputReponse.setAttribute('type', 'text');
         inputReponse.setAttribute('name', 'reponse'+numeroReponse);
         inputReponse.setAttribute('class', 'reponse');
+        inputReponse.setAttribute('placeholder', 'Votre réponse');
         
         divReponse.appendChild(inputReponse);
     }
@@ -89,7 +90,7 @@ class BlocQuestion {
         inputText.setAttribute('type', 'text');
         inputText.setAttribute('class', 'question');
         inputText.setAttribute('name', 'question');
-        inputText.setAttribute('value', 'question?');
+        inputText.setAttribute('placeholder', 'Votre question');
         inputText.setAttribute('id','question');
 
         this.formReponse();
