@@ -1,10 +1,10 @@
 class BlocReponse {
     constructor(textBoutton) {
         this.textBoutton = textBoutton;
-        this.formReponse(this.textBoutton);
+        this.formReponse();
     }
 
-    formReponse(textBoutton) {
+    formReponse() {
         
 
         let form = document.createElement('form');
@@ -22,18 +22,21 @@ class BlocReponse {
         inputSubmit.setAttribute('value', this.textBoutton);
         inputSubmit.setAttribute('name', 'reponseSubmit');
 
+        let numeroReponse = 1;
         inputSubmit.addEventListener('click', (e) =>{
             e.preventDefault();
-            this.addInput();
+            this.addInput(numeroReponse);
+            numeroReponse = numeroReponse + 1;
         });
         
     }
-    addInput() {
+    addInput(numeroReponse) {
         let inputReponse =  document.createElement('input');
         let form = document.getElementById('formReponse');
 
         inputReponse.setAttribute('type', 'text');
-        inputReponse.setAttribute('name', 'r');
+        inputReponse.setAttribute('name', 'reponse'+numeroReponse);
+        inputReponse.setAttribute('class', 'reponse');
         
         form.appendChild(inputReponse);
     }
@@ -51,8 +54,9 @@ class BlocQuestion {
         let form = document.createElement('form');
         let inputText = document.createElement('input');
         let inputSubmit = document.createElement('input');
+        let div = document.getElementById('addBloc');
 
-        document.body.appendChild(form);
+        div.appendChild(form);
         form.appendChild(inputText);
         form.appendChild(inputSubmit);
 
@@ -82,11 +86,3 @@ class BlocQuestion {
 }
 
 let blocQuestion = new BlocQuestion(1, 'Envoyer ma question');
-
-
-
-
-
-
-
-
