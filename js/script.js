@@ -14,8 +14,8 @@ class BlocReponse {
         let pReponse = document.createElement('p');
         let firstInput = document.createElement('input');
         
-        divReponse.appendChild(button);
         divReponse.appendChild(pReponse);
+        divReponse.appendChild(button);
         form.appendChild(divReponse);
         divReponse.appendChild(firstInput);
         form.appendChild(inputSubmit);
