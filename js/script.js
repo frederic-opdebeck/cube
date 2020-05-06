@@ -9,20 +9,26 @@ class BlocReponse {
 
         let form = document.getElementById('formQuestion');
 
+        let button = document.createElement('button');
+        let divReponse = document.createElement('div');
         let inputSubmit = document.createElement('input');
 
+        form.appendChild(button);
+        form.appendChild(divReponse);
         form.appendChild(inputSubmit);
 
-        form.setAttribute('class', 'formReponse');
-        form.setAttribute('method', 'POST');
-        form.setAttribute('id', 'formReponse')
+        divReponse.setAttribute('id', 'divReponse');
+
+        button.textContent = this.textBoutton;
+        button.setAttribute('name', 'reponseSubmit');
+        button.setAttribute('id', 'buttonReponse');
 
         inputSubmit.setAttribute('type', 'submit');
-        inputSubmit.setAttribute('value', this.textBoutton);
-        inputSubmit.setAttribute('name', 'reponseSubmit');
+        inputSubmit.setAttribute('value', 'Ajouter le bloc');
+        inputSubmit.setAttribute('id', 'questionSubmit');
 
         let numeroReponse = 1;
-        inputSubmit.addEventListener('click', (e) =>{
+        button.addEventListener('click', (e) =>{
             e.preventDefault();
             this.addInput(numeroReponse);
             numeroReponse = numeroReponse + 1;
@@ -31,45 +37,53 @@ class BlocReponse {
     }
     addInput(numeroReponse) {
         let inputReponse =  document.createElement('input');
-        let form = document.getElementById('formReponse');
+        let divReponse = document.getElementById('divReponse');
 
         inputReponse.setAttribute('type', 'text');
         inputReponse.setAttribute('name', 'reponse'+numeroReponse);
         inputReponse.setAttribute('class', 'reponse');
         
-        form.appendChild(inputReponse);
+        divReponse.appendChild(inputReponse);
     }
 }
 
 class BlocQuestion {
-    constructor(textBoutton) {
-        this.textBoutton = textBoutton;
-        this.formQuestion(this.numQ, this.textBoutton);
+    constructor() {
+        this.formQuestion();
     }
 
-    formQuestion(numQ, textBoutton) {
+    formQuestion() {
 
         let form = document.createElement('form');
+        let labelQuestion = document.createElement('label');
         let inputText = document.createElement('input');
-        let inputSubmit = document.createElement('input');
         let div = document.getElementById('addBloc');
+        let divQuestion = document.createElement('div');
+        
 
+        
         div.appendChild(form);
-        form.appendChild(inputText);
-        form.appendChild(inputSubmit);
+        form.appendChild(divQuestion);
+        divQuestion.appendChild(labelQuestion);
+        divQuestion.appendChild(inputText);
+        
 
         form.setAttribute('class', 'formQuestion');
         form.setAttribute('method', 'POST');
         form.setAttribute('id','formQuestion');
 
+        labelQuestion.setAttribute('id', 'labelQuestion');
+        labelQuestion.setAttribute('for', 'question');
+
+        divQuestion.setAttribute('class', 'divQuestion');
+
         inputText.setAttribute('type', 'text');
         inputText.setAttribute('class', 'question');
         inputText.setAttribute('name', 'question');
         inputText.setAttribute('value', 'question?');
+        inputText.setAttribute('id','question');
 
-        inputSubmit.setAttribute('type', 'submit');
-        inputSubmit.setAttribute('value', textBoutton);
-        inputSubmit.setAttribute('id', 'questionSubmit');
+        
         this.formReponse();
         
     }
@@ -79,4 +93,4 @@ class BlocQuestion {
     }
 }
 
-let blocQuestion = new BlocQuestion('Envoyer ma question');
+let blocQuestion = new BlocQuestion();
