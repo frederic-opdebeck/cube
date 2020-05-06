@@ -8,7 +8,7 @@
     border-radius: 5px;
     margin: 0px auto;
     padding:10px 25px;
-    text-align:right;
+    text-align:left;
 }
 #formQuestion div:nthchild(1) label,
 #formQuestion div:nthchild(2) p{
