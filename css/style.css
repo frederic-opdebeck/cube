@@ -1,16 +1,16 @@
 #addBloc{
     margin-top:10px;
 }
-#formReponse{
+#formQuestion{
     max-width:1000px;
     min-height: 70px;
     border:1px solid black;
     border-radius: 5px;
     margin: 10px auto;
 }
-#formReponse div:nthchild(1){
+#formQuestion div:nthchild(1){
     width: 100px;
 }
-#formReponse div:nthchild(2){
+#formQuestion div:nthchild(2){
     width: 100px;
 }
