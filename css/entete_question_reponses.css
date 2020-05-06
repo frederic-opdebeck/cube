@@ -12,6 +12,12 @@
     padding: 5px;
 
 }
+.losange h6{
+
+    transform: rotate(45deg);
+
+
+}
 .carre-reponse{
     border:1px solid black;
     width: 40px;
