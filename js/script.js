@@ -13,10 +13,12 @@ class BlocReponse {
         let divReponse = document.createElement('div');
         let inputSubmit = document.createElement('input');
         let pReponse = document.createElement('p');
-
+        let firstInput = document.createElement('input');
+        
         form.appendChild(pReponse);
         form.appendChild(button);
         form.appendChild(divReponse);
+        divReponse.appendChild(firstInput);
         form.appendChild(inputSubmit);
 
         divReponse.setAttribute('id', 'divReponse');
@@ -31,6 +33,10 @@ class BlocReponse {
         inputSubmit.setAttribute('type', 'submit');
         inputSubmit.setAttribute('value', 'Ajouter le bloc');
         inputSubmit.setAttribute('id', 'questionSubmit');
+
+        firstInput.setAttribute('class', 'reponse');
+        firstInput.setAttribute('type', 'text');
+        firstInput.setAttribute('name', 'reponse0');
 
         let numeroReponse = 1;
         button.addEventListener('click', (e) =>{
