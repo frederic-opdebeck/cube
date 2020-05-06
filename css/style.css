@@ -1,16 +1,29 @@
 #addBloc{
     margin-top:10px;
 }
-#formReponse{
+#formQuestion{
     max-width:1000px;
     min-height: 70px;
     border:1px solid black;
     border-radius: 5px;
-    margin: 10px auto;
+    margin: 0px auto;
+    padding:10px 25px;
+    text-align:left;
 }
-#formReponse div:nthchild(1){
-    width: 100px;
+#formQuestion div:nthchild(1) label,
+#formQuestion div:nthchild(2) p{
+    font-size:16px;
 }
-#formReponse div:nthchild(2){
-    width: 100px;
+{
+   font-size:16px;
+}
+#formQuestion button {
+    font-size:14px;
+    padding: 3px;
+    background-color; #AAA;
+    color:black;
+}
+#formQuestion button:hover {
+    font-size:120%;
+
 }
