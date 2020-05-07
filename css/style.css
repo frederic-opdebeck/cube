@@ -1,3 +1,6 @@
+html, html *{
+    font-size: 16px;
+}
 nav ul {
     display: flex;
     flex-direction: row;
