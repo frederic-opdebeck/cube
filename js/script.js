@@ -10,15 +10,41 @@ class BlocQuestion {
         let inputText = document.createElement('input');
         let div = document.getElementById('addBloc');
         let divQuestion = document.createElement('div');
+        let labelQuestionToAssign = document.createElement('label');
+        let selectQuestionToAssign = document.createElement('select');
+        let optionSelectQuestionToAssign1 = document.createElement('option');
+        let optionSelectQuestionToAssign2 = document.createElement('option');
+        let optionSelectQuestionToAssign3 = document.createElement('option');
         
         div.appendChild(form);
         form.appendChild(divQuestion);
         divQuestion.appendChild(labelQuestion);
         divQuestion.appendChild(inputText);
-
+        divQuestion.appendChild(labelQuestionToAssign);
+        divQuestion.appendChild(selectQuestionToAssign);
+        selectQuestionToAssign.appendChild(optionSelectQuestionToAssign1);
+        selectQuestionToAssign.appendChild(optionSelectQuestionToAssign2);
+        selectQuestionToAssign.appendChild(optionSelectQuestionToAssign3);
+        
         form.setAttribute('class', 'formQuestion');
         form.setAttribute('method', 'POST');
         form.setAttribute('id','formQuestion');
+
+        labelQuestionToAssign.setAttribute('for', 'selectQuestionToAssign');
+        labelQuestionToAssign.textContent = "Cette question sera associé à :";
+
+        selectQuestionToAssign.setAttribute('id', 'selectQuestionToAssign');
+
+        optionSelectQuestionToAssign1.setAttribute('value', 'elementPrincipal');
+        optionSelectQuestionToAssign1.textContent = 'Première question';
+
+        //boucle d'options
+        optionSelectQuestionToAssign2.setAttribute('value', 'question2');
+        optionSelectQuestionToAssign2.textContent= 'question2 (exemple)';
+
+        optionSelectQuestionToAssign3.setAttribute('value', 'question3');
+        optionSelectQuestionToAssign3.textContent= 'question3 (exemple)';
+        //End boucle d'options
 
         labelQuestion.setAttribute('id', 'labelQuestion');
         labelQuestion.setAttribute('for', 'question');
