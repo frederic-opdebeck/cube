@@ -39,16 +39,20 @@ class BlocQuestion {
     formReponse() {
         let form = document.getElementById('formQuestion');
 
-        let button = document.createElement('button');
+        let buttonReponse = document.createElement('button');
+        let buttonRemove = document.createElement('button');
         let divReponse = document.createElement('div');
         let inputSubmit = document.createElement('input');
         let pReponse = document.createElement('p');
         let firstInput = document.createElement('input');
         let divInputReponse = document.createElement('div');
+        let divButtonReponse = document.createElement('div');
         
         divReponse.appendChild(pReponse);
         divReponse.appendChild(divInputReponse);
-        divInputReponse.appendChild(button);
+        divReponse.appendChild(divButtonReponse);
+        divButtonReponse.appendChild(buttonReponse);
+        divButtonReponse.appendChild(buttonRemove);
         form.appendChild(divReponse);
         divInputReponse.appendChild(firstInput);
         form.appendChild(inputSubmit);
@@ -59,9 +63,15 @@ class BlocQuestion {
         pReponse.setAttribute('class', 'pReponse');
         pReponse.textContent = "Ecrivez vos réponses: ";
 
-        button.textContent = 'Ajouter une réponse';
-        button.setAttribute('name', 'reponseSubmit');
-        button.setAttribute('id', 'buttonReponse');
+        divButtonReponse.setAttribute('class', 'divButtonreponse');
+
+        buttonReponse.textContent = 'Ajouter une réponse';
+        buttonReponse.setAttribute('name', 'reponseSubmit');
+        buttonReponse.setAttribute('id', 'buttonReponse');
+
+        buttonRemove.textContent = 'Retirer une réponse';
+        buttonRemove.setAttribute('name','buttonRemove');
+        buttonRemove.setAttribute('id', 'buttonRemove');
 
         inputSubmit.setAttribute('type', 'submit');
         inputSubmit.setAttribute('value', 'Ajouter le bloc');
@@ -73,17 +83,30 @@ class BlocQuestion {
         firstInput.setAttribute('placeholder', 'Votre réponse');
 
         let numeroReponse = 1;
-        button.addEventListener('click', (e) =>{
+
+        buttonReponse.addEventListener('click', (e) =>{
             e.preventDefault();
             if(numeroReponse<3) {
                 this.addInput(numeroReponse);
+                numeroReponse = numeroReponse + 1;
             }
             else {
                 alert('Vous ne pouvez pas ajouter plus de 3 réponses');
+                numeroReponse = 3;
             }
-            numeroReponse = numeroReponse + 1;
+            
         });
-        
+        buttonRemove.addEventListener('click', (e)=>{
+            e.preventDefault();
+            if(numeroReponse!==1) {
+                numeroReponse = numeroReponse - 1;
+                let inputReponse = document.getElementById('reponse'+numeroReponse);
+                inputReponse.remove();
+            }
+            else {
+                alert('Aucune réponse à retirer');
+            }
+        });
     }
     addInput(numeroReponse) {
         let inputReponse =  document.createElement('input');
@@ -93,8 +116,12 @@ class BlocQuestion {
         inputReponse.setAttribute('name', 'reponse'+numeroReponse);
         inputReponse.setAttribute('class', 'reponse');
         inputReponse.setAttribute('placeholder', 'Votre réponse');
+        inputReponse.setAttribute('id', 'reponse'+numeroReponse);
         
         divInputReponse.appendChild(inputReponse);
+    }
+    removeInput() {
+
     }
 }
 
