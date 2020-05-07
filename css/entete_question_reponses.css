@@ -73,11 +73,21 @@
     z-index: 100;
     background-color: cyan;
 }
+.fleche1_middle{
+    grid-column: 4/6;
+    grid-row: 2/4;
+    border: 2px solid black;
+    border-bottom: none;
+    margin-top: 90px;
+    z-index: 1;
+    
+}
 .fleche1{
     grid-column: 4/6;
     grid-row: 2/4;
     border: 2px solid black;
     border-bottom: none;
+    border-right: none;
     margin-top: 90px;
     z-index: 1;
     
