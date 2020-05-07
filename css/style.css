@@ -36,7 +36,7 @@
     width: 150px;
     height: 35px;
 
-    background-color: #DDD;
+    background-color: #DADADA;
     border:1px solid black;
     margin-right:5px;
     border-radius: 3px;
@@ -58,4 +58,17 @@
 #addBloc input[type=submit]:hover{
     letter-spacing: 110%;
 }
+#addBloc input[type=submit]{
+    font-size:14px;
+    padding: 3px;
+    width: 150px;
+    height: 35px;
+
+    background-color: #FCFCFC;
+    border:1px solid black;
+    margin-right:5px;
+    border-radius: 3px;
+    color:black;
+}
+
 
