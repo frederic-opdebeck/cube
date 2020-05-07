@@ -1,6 +1,6 @@
 <?php  
 session_start();
-require 'conf.php';
+require 'config.php';
 
 require_once 'tools.php';
 
