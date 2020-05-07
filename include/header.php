@@ -14,9 +14,9 @@
         <nav>
             <ul>
             <li><a href="http://localhost:8888/cube/index.php">Accueil</a></li>
-                <li><a href="http://localhost:8888/cube/proposition_bloc_question_reponses.html">
+                <li><a href="http://localhost:8888/cube/proposition_bloc_question_reponses.php">
                 Modèle de blocs</a></li>
-                <li><a href="http://localhost:8888/cube/questionnaire.html">
+                <li><a href="http://localhost:8888/cube/questionnaire.php">
                 Questionnaire</a></li>
             </ul>
         </nav>
