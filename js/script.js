@@ -27,23 +27,23 @@ class BlocQuestion {
         divQuestion.appendChild(labelQuestion);
         divQuestion.appendChild(inputText);
         divQuestion.appendChild(divToAssign);
-        divToAssign.appendChild(labelReponseToAssign);
-        divToAssign.appendChild(selectReponseToAssign);
         divToAssign.appendChild(labelQuestionToAssign);
         divToAssign.appendChild(selectQuestionToAssign);
-        selectReponseToAssign.appendChild(optionSelectReponseToAssign1);
-        selectReponseToAssign.appendChild(optionSelectReponseToAssign2);
-        selectReponseToAssign.appendChild(optionSelectReponseToAssign3);
+        divToAssign.appendChild(labelReponseToAssign);
+        divToAssign.appendChild(selectReponseToAssign);
         selectQuestionToAssign.appendChild(optionSelectQuestionToAssign1);
         selectQuestionToAssign.appendChild(optionSelectQuestionToAssign2);
         selectQuestionToAssign.appendChild(optionSelectQuestionToAssign3);
+        selectReponseToAssign.appendChild(optionSelectReponseToAssign1);
+        selectReponseToAssign.appendChild(optionSelectReponseToAssign2);
+        selectReponseToAssign.appendChild(optionSelectReponseToAssign3);
         
         form.setAttribute('class', 'formQuestion');
         form.setAttribute('method', 'POST');
         form.setAttribute('id','formQuestion');
 
         labelReponseToAssign.setAttribute('for', 'selectReponseToAssign');
-        labelReponseToAssign.textContent = "Cette question sera associé à la réponse:";
+        labelReponseToAssign.textContent = "Choisissez votre réponse:";
 
         selectReponseToAssign.setAttribute('id', 'selectReponseToAssign');
 
@@ -59,7 +59,7 @@ class BlocQuestion {
         //End boucle d'options
 
         labelQuestionToAssign.setAttribute('for', 'selectQuestionToAssign');
-        labelQuestionToAssign.textContent = "de la question:";
+        labelQuestionToAssign.textContent = "Dans quel question est la réponse pour assigner ce bloc ?";
 
         selectQuestionToAssign.setAttribute('id', 'selectQuestionToAssign');
 
