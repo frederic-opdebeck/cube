@@ -10,16 +10,16 @@
     padding:10px 25px;
     text-align:left;
 }
-#formQuestion > div label,
-#formQuestion > div p{
+#formQuestion  div label,
+#formQuestion  div p{
     font-size:16px;
     margin-right:5px;
 }
-#formQuestion > div.divQuestion{
+#formQuestion  div.divQuestion{
     padding: 5px 0px;
 
 }
-#formQuestion > div#divInputReponse{
+#formQuestion  div#divInputReponse{
     width: 100%;
 
     padding: 5px 0px;
@@ -39,7 +39,7 @@
     border-radius: 3px;
     color:black;
 }
-/*
+/* 
 #formQuestion button:hover {
     font-size:110%;
 }
