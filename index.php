@@ -13,6 +13,7 @@
     <header>
         <nav>
             <ul>
+            <li><a href="http://localhost:8888/cube/index.php">Accueil</a></li>
                 <li><a href="http://localhost:8888/cube/proposition_bloc_question_reponses.html">
                 Modèle de blocs</a></li>
                 <li><a href="http://localhost:8888/cube/questionnaire.html">
