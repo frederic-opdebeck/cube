@@ -19,11 +19,11 @@
                 Questionnaire</a></li>
             </ul>
         </nav>
-<hr>
+        <hr>
         <div id="addBloc">
     
         </div>
-<hr>
+        <hr>
     </header>
  
     
