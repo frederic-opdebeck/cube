@@ -1,4 +1,4 @@
-<?php  // require './include/init.php';?>
+<?php  require './include/init.php';?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
