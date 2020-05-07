@@ -55,7 +55,7 @@
     padding:2px;
 }
 #addBloc button:hover,
-#addBloc input[type=text]:hover{
+#addBloc input[type=submit]:hover{
     letter-spacing: 110%;
 }
 
