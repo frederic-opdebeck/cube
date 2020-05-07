@@ -46,11 +46,13 @@ class BlocQuestion {
         let pReponse = document.createElement('p');
         let firstInput = document.createElement('input');
         let divInputReponse = document.createElement('div');
+        let divButtonReponse = document.createElement('div');
         
         divReponse.appendChild(pReponse);
         divReponse.appendChild(divInputReponse);
-        divInputReponse.appendChild(buttonRemove);
-        divInputReponse.appendChild(buttonReponse);
+        divReponse.appendChild(divButtonReponse);
+        divButtonReponse.appendChild(buttonRemove);
+        divButtonReponse.appendChild(buttonReponse);
         form.appendChild(divReponse);
         divInputReponse.appendChild(firstInput);
         form.appendChild(inputSubmit);
@@ -61,11 +63,13 @@ class BlocQuestion {
         pReponse.setAttribute('class', 'pReponse');
         pReponse.textContent = "Ecrivez vos réponses: ";
 
+        divButtonReponse.setAttribute('class', 'divButtonreponse');
+
         buttonReponse.textContent = 'Ajouter une réponse';
         buttonReponse.setAttribute('name', 'reponseSubmit');
         buttonReponse.setAttribute('id', 'buttonReponse');
 
-        buttonRemove.textContent = 'Enlever une réponse';
+        buttonRemove.textContent = 'Retirer une réponse';
         buttonRemove.setAttribute('name','buttonRemove');
         buttonRemove.setAttribute('id', 'buttonRemove');
 
@@ -79,7 +83,7 @@ class BlocQuestion {
         firstInput.setAttribute('placeholder', 'Votre réponse');
 
         let numeroReponse = 1;
-        
+
         buttonReponse.addEventListener('click', (e) =>{
             e.preventDefault();
             if(numeroReponse<3) {
