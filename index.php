@@ -27,7 +27,6 @@
         <hr>
     </header>
     <section>
-    <h5>Création du bloc en visuel ici</h5>
     <div class="container-reponse">
     <div class="carre-question">
         <p>Etes vous en forme ?</p>
