@@ -1,67 +1,3 @@
-class BlocReponse {
-    constructor(textBoutton) {
-        this.textBoutton = textBoutton;
-        this.formReponse();
-    }
-
-    formReponse() {
-        
-        let form = document.getElementById('formQuestion');
-
-        let button = document.createElement('button');
-        let divReponse = document.createElement('div');
-        let inputSubmit = document.createElement('input');
-        let pReponse = document.createElement('p');
-        let firstInput = document.createElement('input');
-        
-        
-
-        divReponse.appendChild(pReponse);
-        divReponse.appendChild(button);
-  
-        form.appendChild(divReponse);
-        divReponse.appendChild(firstInput);
-        form.appendChild(inputSubmit);
-
-        divReponse.setAttribute('id', 'divReponse');
-
-        pReponse.setAttribute('class', 'pReponse');
-        pReponse.textContent = "Ecrivez vos réponses: ";
-
-        button.textContent = this.textBoutton;
-        button.setAttribute('name', 'reponseSubmit');
-        button.setAttribute('id', 'buttonReponse');
-
-        inputSubmit.setAttribute('type', 'submit');
-        inputSubmit.setAttribute('value', 'Ajouter le bloc');
-        inputSubmit.setAttribute('id', 'questionSubmit');
-
-        firstInput.setAttribute('class', 'reponse');
-        firstInput.setAttribute('type', 'text');
-        firstInput.setAttribute('name', 'reponse0');
-        firstInput.setAttribute('placeholder', 'Votre réponse');
-
-        let numeroReponse = 1;
-        button.addEventListener('click', (e) =>{
-            e.preventDefault();
-            this.addInput(numeroReponse);
-            numeroReponse = numeroReponse + 1;
-        });
-        
-    }
-    addInput(numeroReponse) {
-        let inputReponse =  document.createElement('input');
-        let divReponse = document.getElementById('divReponse');
-
-        inputReponse.setAttribute('type', 'text');
-        inputReponse.setAttribute('name', 'reponse'+numeroReponse);
-        inputReponse.setAttribute('class', 'reponse');
-        inputReponse.setAttribute('placeholder', 'Votre réponse');
-        
-        divReponse.appendChild(inputReponse);
-    }
-}
-
 class BlocQuestion {
     constructor() {
         this.formQuestion();
@@ -101,7 +37,59 @@ class BlocQuestion {
     }
 
     formReponse() {
-        let formReponse = new BlocReponse('Ajouter une réponse');
+        let form = document.getElementById('formQuestion');
+
+        let button = document.createElement('button');
+        let divReponse = document.createElement('div');
+        let inputSubmit = document.createElement('input');
+        let pReponse = document.createElement('p');
+        let firstInput = document.createElement('input');
+        let divInputReponse = document.createElement('div');
+        
+        divReponse.appendChild(pReponse);
+        divReponse.appendChild(divInputReponse);
+        divInputReponse.appendChild(button);
+        form.appendChild(divReponse);
+        divInputReponse.appendChild(firstInput);
+        form.appendChild(inputSubmit);
+
+        divReponse.setAttribute('id', 'divReponse');
+        divInputReponse.setAttribute('id', 'divInputReponse');
+
+        pReponse.setAttribute('class', 'pReponse');
+        pReponse.textContent = "Ecrivez vos réponses: ";
+
+        button.textContent = 'Ajouter une réponse';
+        button.setAttribute('name', 'reponseSubmit');
+        button.setAttribute('id', 'buttonReponse');
+
+        inputSubmit.setAttribute('type', 'submit');
+        inputSubmit.setAttribute('value', 'Ajouter le bloc');
+        inputSubmit.setAttribute('id', 'questionSubmit');
+
+        firstInput.setAttribute('class', 'reponse');
+        firstInput.setAttribute('type', 'text');
+        firstInput.setAttribute('name', 'reponse0');
+        firstInput.setAttribute('placeholder', 'Votre réponse');
+
+        let numeroReponse = 1;
+        button.addEventListener('click', (e) =>{
+            e.preventDefault();
+            this.addInput(numeroReponse);
+            numeroReponse = numeroReponse + 1;
+        });
+        
+    }
+    addInput(numeroReponse) {
+        let inputReponse =  document.createElement('input');
+        let divInputReponse = document.getElementById('divInputReponse');
+
+        inputReponse.setAttribute('type', 'text');
+        inputReponse.setAttribute('name', 'reponse'+numeroReponse);
+        inputReponse.setAttribute('class', 'reponse');
+        inputReponse.setAttribute('placeholder', 'Votre réponse');
+        
+        divInputReponse.appendChild(inputReponse);
     }
 }
 
