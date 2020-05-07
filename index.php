@@ -30,21 +30,21 @@
     <h5>Création du bloc en visuel ici</h5>
     <div class="container-reponse">
     <div class="carre-question">
-        <h6>Etes vous en forme ?</h6>
+        <p>Etes vous en forme ?</p>
     </div>
     <div class="fleche3">
     </div>
     <div class="losange">
-        <h6>réponses</h6>
+        <p>réponses</p>
     </div>
     <div class="carre-reponse1">
-        <h6>oui</h6>
+        <p>oui</p>
     </div>
     <div class="carre-reponse2">
-        <h6>non</h6>
+        <p>non</p>
     </div>
     <div class="carre-reponse3">
-        <h6>peu étre</h6>
+        <p>peu étre</p>
     </div>
     <div class="fleche1_middle">
     </div>
