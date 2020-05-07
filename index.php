@@ -12,14 +12,18 @@
 
     <header>
         <nav>
-            <a href="http://localhost:8888/cube/proposition_bloc_question_reponses.html">
-                proposition bloc : question/reponses
-            </a>
+            <ul>
+                <li><a href="http://localhost:8888/cube/proposition_bloc_question_reponses.html">
+                Modèle de blocs</a></li>
+                <li><a href="http://localhost:8888/cube/questionnaire.html">
+                Questionnaire</a></li>
+            </ul>
         </nav>
-    
+<hr>
         <div id="addBloc">
     
         </div>
+<hr>
     </header>
  
     
