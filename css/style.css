@@ -19,10 +19,13 @@
     padding: 5px 0px;
 
 }
-#formQuestion  div#divInputReponse{
+/* dans #formQuestion */
+#divButtonreponse,
+#divInputReponse{
+    padding: 5px 0px;  
+}
+#divInputReponse{
     width: 100%;
-
-    padding: 5px 0px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -63,6 +66,7 @@
     padding: 3px;
     width: 150px;
     height: 35px;
+    margin:5px 0px;
 
     background-color: #FCFCFC;
     border:1px solid black;
