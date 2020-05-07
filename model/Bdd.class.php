@@ -8,14 +8,10 @@ class Bdd
     */
     public function __construct()
     {
-        // $strBddServeur = "localhost:3308";
-        // $strBddLogin = "root";             
-        // $strBddPassword = "";
-        // $strBddBase = "boutique";
-        $strBddServeur = "localhost";
-        $strBddLogin = "abeignet";             
-        $strBddPassword = "B3chT?6zho;h";
-        $strBddBase = "abeignet_boutique";
+        $strBddServeur = "localhost:3308";
+        $strBddLogin = "root";             
+        $strBddPassword = "";
+        $strBddBase = "boutique";
          
          
         //Création d'un lien à la base de données de type PDO
