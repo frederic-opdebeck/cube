@@ -10,15 +10,71 @@ class BlocQuestion {
         let inputText = document.createElement('input');
         let div = document.getElementById('addBloc');
         let divQuestion = document.createElement('div');
+        let labelReponseToAssign = document.createElement('label');
+        let labelQuestionToAssign = document.createElement('label');
+        let selectReponseToAssign = document.createElement('select');
+        let optionSelectReponseToAssign1 = document.createElement('option');
+        let optionSelectReponseToAssign2 = document.createElement('option');
+        let optionSelectReponseToAssign3 = document.createElement('option');
+        let selectQuestionToAssign = document.createElement('select');
+        let optionSelectQuestionToAssign1 = document.createElement('option');
+        let optionSelectQuestionToAssign2 = document.createElement('option');
+        let optionSelectQuestionToAssign3 = document.createElement('option');
+        let divToAssign = document.createElement('div');
         
         div.appendChild(form);
         form.appendChild(divQuestion);
         divQuestion.appendChild(labelQuestion);
         divQuestion.appendChild(inputText);
-
+        divQuestion.appendChild(divToAssign);
+        divToAssign.appendChild(labelReponseToAssign);
+        divToAssign.appendChild(selectReponseToAssign);
+        divToAssign.appendChild(labelQuestionToAssign);
+        divToAssign.appendChild(selectQuestionToAssign);
+        selectReponseToAssign.appendChild(optionSelectReponseToAssign1);
+        selectReponseToAssign.appendChild(optionSelectReponseToAssign2);
+        selectReponseToAssign.appendChild(optionSelectReponseToAssign3);
+        selectQuestionToAssign.appendChild(optionSelectQuestionToAssign1);
+        selectQuestionToAssign.appendChild(optionSelectQuestionToAssign2);
+        selectQuestionToAssign.appendChild(optionSelectQuestionToAssign3);
+        
         form.setAttribute('class', 'formQuestion');
         form.setAttribute('method', 'POST');
         form.setAttribute('id','formQuestion');
+
+        labelReponseToAssign.setAttribute('for', 'selectReponseToAssign');
+        labelReponseToAssign.textContent = "Cette question sera associé à la réponse:";
+
+        selectReponseToAssign.setAttribute('id', 'selectReponseToAssign');
+
+        optionSelectReponseToAssign1.setAttribute('value', 'elementPrincipal1');
+        optionSelectReponseToAssign1.textContent = 'Rien (première question)';
+
+        //boucle d'options
+        optionSelectReponseToAssign2.setAttribute('value', 'réponse2');
+        optionSelectReponseToAssign2.textContent= 'réponse2 (exemple)';
+
+        optionSelectReponseToAssign3.setAttribute('value', 'réponse3');
+        optionSelectReponseToAssign3.textContent= 'réponse3 (exemple)';
+        //End boucle d'options
+
+        labelQuestionToAssign.setAttribute('for', 'selectQuestionToAssign');
+        labelQuestionToAssign.textContent = "de la question:";
+
+        selectQuestionToAssign.setAttribute('id', 'selectQuestionToAssign');
+
+        optionSelectQuestionToAssign1.setAttribute('value', 'elementPrincipal2');
+        optionSelectQuestionToAssign1.textContent = 'Rien (première question)';
+
+        //boucle d'options
+        optionSelectQuestionToAssign2.setAttribute('value', 'question2');
+        optionSelectQuestionToAssign2.textContent= 'question2 (exemple)';
+
+        optionSelectQuestionToAssign3.setAttribute('value', 'question3');
+        optionSelectQuestionToAssign3.textContent= 'question3 (exemple)';
+        //End boucle d'options
+
+        divToAssign.setAttribute('id', 'divToAssign');
 
         labelQuestion.setAttribute('id', 'labelQuestion');
         labelQuestion.setAttribute('for', 'question');
