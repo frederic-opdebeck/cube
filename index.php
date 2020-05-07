@@ -12,7 +12,7 @@
 
     <header>
         <nav>
-            <a href="https://frederic-opdebeck.github.io/cube/proposition_bloc_question_reponses.html">
+            <a href="http://localhost:8888/cube/proposition_bloc_question_reponses.html">
                 proposition bloc : question/reponses
             </a>
         </nav>
