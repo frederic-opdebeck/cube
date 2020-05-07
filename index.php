@@ -26,6 +26,34 @@
         </div>
         <hr>
     </header>
+    <section>
+    <h5>Création du bloc en visuel ici</h5>
+    <div class="container-reponse">
+    <div class="carre-question">
+        <h6>Etes vous en forme ?</h6>
+    </div>
+    <div class="fleche3">
+    </div>
+    <div class="losange">
+        <h6>réponses</h6>
+    </div>
+    <div class="carre-reponse1">
+        <h6>oui</h6>
+    </div>
+    <div class="carre-reponse2">
+        <h6>non</h6>
+    </div>
+    <div class="carre-reponse3">
+        <h6>peu étre</h6>
+    </div>
+    <div class="fleche1_middle">
+    </div>
+    <div class="fleche2">
+    </div>
+    </div>
+
+
+</section>
  
     
     
