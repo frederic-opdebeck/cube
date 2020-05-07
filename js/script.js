@@ -75,7 +75,12 @@ class BlocQuestion {
         let numeroReponse = 1;
         button.addEventListener('click', (e) =>{
             e.preventDefault();
-            this.addInput(numeroReponse);
+            if(numeroReponse<3) {
+                this.addInput(numeroReponse);
+            }
+            else {
+                alert('Vous ne pouvez pas ajouter plus de 3 réponses');
+            }
             numeroReponse = numeroReponse + 1;
         });
         
