@@ -51,8 +51,8 @@ class BlocQuestion {
         divReponse.appendChild(pReponse);
         divReponse.appendChild(divInputReponse);
         divReponse.appendChild(divButtonReponse);
-        divButtonReponse.appendChild(buttonRemove);
         divButtonReponse.appendChild(buttonReponse);
+        divButtonReponse.appendChild(buttonRemove);
         form.appendChild(divReponse);
         divInputReponse.appendChild(firstInput);
         form.appendChild(inputSubmit);
