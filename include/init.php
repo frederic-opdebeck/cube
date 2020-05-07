@@ -4,6 +4,7 @@ require 'config.php';
 
 require_once 'tools.php';
 
+require 'traitement_index.php';
 //initialisation des class
 function classAutoload($className) {
     $path = array('model/');

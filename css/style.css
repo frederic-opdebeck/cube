@@ -1,3 +1,17 @@
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 150%;
+    list-style: none;
+    margin: 5px;
+    padding: 3px;
+}
+nav ul li{
+    margin: 5px;
+    padding: 3px;
+}
 #addBloc{
     margin-top:10px;
 }
