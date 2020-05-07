@@ -60,7 +60,8 @@ switch($_SERVER['SERVER_NAME'])
     default :
         exit;
     break;
-}
+
 
 */
+}
 ?>
