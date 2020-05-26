@@ -6,7 +6,7 @@ const questions = {
             'type': 'button',
             'suite':function(rep) {
                 if (rep === 'R1') {
-                    return questions.q2.question;
+                    return questions.q2;
                 }
             }
         },
@@ -17,7 +17,7 @@ const questions = {
             'type': 'button',
             'suite': function(rep) {
                 if (rep === 'R1') {
-                    return questions.q4.question;
+                    return questions.q4;
                 }
             }
         },
@@ -35,19 +35,54 @@ const questions = {
             'type': 'button',
             'suite':function(rep) {
                 if (rep === 'R1') {
-                    return questions.q5.question;
+                    return questions.q5;
                 }
             }
         },
     'q5':{
-            'question': 'Voulez-vous : une baignoire ou une cuisine ?', // 'Do you want a Kitchen or Bathroom?',
-            'reponses': { 'R1': 'Une baignoire', 'R2': 'Une cuisine'},
-            'img' : 'img_5.jgp',
+            'question': 'Quelle est votre surface préférée ?', 
+            'reponses': { 'R1': 'numbre_m2'},
+            'img' : null,
+            'type': 'number',
+            'suite':function(rep) {
+                if (rep === 'R1') {
+                    return questions.q6;
+                }
+            }
+    },
+    'q6':{
+            'question': 'Avez-vous au moins une construction sur votre terrain ?', // Do you have any Construction in your Backyard? (Image 6)
+            'reponses': { 'R1': 'Oui', 'R2': 'Non'},
+            'img' : 'img_6',
             'type': 'button',
             'suite':function(rep) {
                 if (rep === 'R1') {
-                    return questions.q4.question;
+                    return questions.q7;
                 }
             }
-    }
+    },
+    'q7':{
+        'question': 'Avez-vous au moins une construction sur votre terrain ?', // Do you have any Construction in your Backyard? (Image 6)
+        'reponses': { 'R1': 'Oui', 'R2': 'Non'},
+        'img' : 'img_6',
+        'type': 'button',
+        'suite':function(rep) {
+            if (rep === 'R1') {
+                return questions.q9;
+            }
+        }
+    },
+    'q8':{
+        'question': 'Quelle type de consctruction vous aimez le plus ?', // Which look do you like most? (Image 11-12-13)
+        'reponses': { 'R1': 'img_11 en bg', 'R2': 'Non'},
+        'img' : 'img_6',
+        'type': 'button',
+        'suite':function(rep) {
+            if (rep === 'R1') {
+                return questions.q6;
+            }
+        }
+    },
+   
+
 }
