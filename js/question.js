@@ -28,11 +28,10 @@ const questions = {
         'img' : 'img_2.jgp',
         'type': null,
         'suite': null
-        },
+        }
+}
 
 
-ques
-tions.question1.suite(['R1']);
 
 
 
