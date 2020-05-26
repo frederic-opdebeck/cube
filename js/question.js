@@ -62,9 +62,9 @@ const questions = {
             }
     },
     'q7':{
-        'question': 'Avez-vous au moins une construction sur votre terrain ?', // Do you have any Construction in your Backyard? (Image 6)
+        'question': 'Voulez-vous détruire cette construction ?', // Would you like to remove this structure? (Image 7)
         'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-        'img' : 'img_6',
+        'img' : 'img_7',
         'type': 'button',
         'suite':function(rep) {
             if (rep === 'R1') {
@@ -74,15 +74,15 @@ const questions = {
     },
     'q8':{
         'question': 'Quelle type de consctruction vous aimez le plus ?', // Which look do you like most? (Image 11-12-13)
-        'reponses': { 'R1': 'img_11 en bg', 'R2': 'Non'},
+        'reponses': { 'R1': 'img_11 en bg', 'R2': 'img_12 en bg', 'R3' :'img_13 en bg'},
         'img' : 'img_6',
         'type': 'button',
         'suite':function(rep) {
             if (rep === 'R1') {
-                return questions.q6;
+                return questions.q9;
             }
         }
-    },
+    }
    
 
 }
