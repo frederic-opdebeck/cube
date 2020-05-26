@@ -68,21 +68,65 @@ const questions = {
         'type': 'button',
         'suite':function(rep) {
             if (rep === 'R1') {
-                return questions.q9;
+                return questions.q8;
             }
         }
     },
     'q8':{
-        'question': 'Quelle type de consctruction vous aimez le plus ?', // Which look do you like most? (Image 11-12-13)
+        'question': 'Quelle type de consctruction aimez-vous le plus ?', // Which look do you like most? (Image 11-12-13)
         'reponses': { 'R1': 'img_11 en bg', 'R2': 'img_12 en bg', 'R3' :'img_13 en bg'},
-        'img' : 'img_6',
+        'img' : 'img_11.jpg-img_12.jpg-img_13.jpg',
         'type': 'button',
         'suite':function(rep) {
             if (rep === 'R1') {
                 return questions.q9;
             }
         }
+        // fonction pour Récapituler de toutes les q et r associées + envoie d"un mail et proposer envoie de mail telechargement de la config'
+    },
+    'q9':{
+        'question': 'Voulez-vous sauvegarder votre rapport ?', // Which look do you like most? (Image 11-12-13)
+        'reponses': { 'R1': 'oui', 'R2': 'non'},
+        'img' : 'img_11.jpg-img_12.jpg-img_13.jpg',
+        'type': 'button',
+        'suite':function(rep) {
+            if (rep === 'R1') {
+                return questions.q10;
+            }
+        }
+        // fonction qui enoive un mail de récap au client potentiel
+    },
+    'q10':{
+        'question': 'Voulez-vous sauvegarder votre rapport ?', // Which look do you like most? (Image 11-12-13)
+        'reponses': { 'R1': 'oui', 'R2': 'non'},
+        'img' : 'img_11.jpg-img_12.jpg-img_13.jpg',
+        'type': 'button',
+        'suite':function(rep) {
+            if (rep === 'R1') {
+                return questions.q11;
+            }
+        }
+    },
+    'q11':{
+        'question': 'Achetez-vous votre CUBE ?', // Which look do you like most? (Image 11-12-13)
+        'reponses': { 'R1': 'oui', 'R2': 'non'},
+        'img' : 'img_11.jpg-img_12.jpg-img_13.jpg',
+        'type': 'button',
+        'suite':function(rep) {
+            if (rep === 'R1') {
+                return questions.q12;
+            }
+        }
+    },
+    'q12':{
+        'question': 'envoie vers une page de paiement', // Which look do you like most? (Image 11-12-13)
+        'reponses': null,
+        'img' : null,
+        'type': 'button',
+        'suite':function(rep) {
+            if (rep === 'R1') {
+                return questions.q12;
+            }
+        }
     }
-   
-
 }
