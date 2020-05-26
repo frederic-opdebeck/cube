@@ -49,5 +49,5 @@ const questions = {
                     return questions.q4.question;
                 }
             }
-    },
+    }
 }
