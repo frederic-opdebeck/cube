@@ -1,39 +1,46 @@
-// Avant propos :
-            const modele_d_une_brique =
-                [
-                    {
-                        'question' : "une question",
-                        'reponse'  : {'R1' : "toutes les réponses"},
-                        'img' : 'nom_image.jpg',
-                        'suite' : 
-                            {
-                                'S1' : 'rebelote',
-                                'S2' : 'rebelote',
-                                'Sn' : 'rebelote'
-                            }
-                    }
-                ]
-// AVEC rebelote définie tel que :
-            const rebelote =
-                [
-                    {
-                        'question' : "une question",
-                        'reponse'  : {'R1' : "toutes les réponses"},
-                        'img' : 'nom_image.jpg',
-                        'suite' : 
-                            {
-                                'S1' : 'rebelote',
-                                'S2' : 'rebelote',
-                                'Sn' : 'rebelote'
-                            }
-                    }
-                ]
-// Tableau associatif récursif : le vrai (suite de gauche à droite)
+function suite(rep){
+    if (rep.includes('R1') || rep.includes('R3')) {
+        return 'question2';
+    } else if (rep.includes('R2')) {
+        return 'questions.q3';
+    }
+}
+// questions.question1.suite(['R1']);
 
-const yesNo = {'R1' : "Yes", 'R2' : "No"}
+const questions = {
+    'q1':{
+            'question': 'Habitez-vous vous en France ?', // Do you leave
+            'reponses': { 'R1': 'Oui', 'R2': 'Non'},
+            'img' : 'img_1.jgp',
+            'type': 'button',
+            'suite': questions.q2
+        },
+    'q2':{
+        'question': 'A quoi servira votre CUBE ?', // Is this the property you're looking for ?
+        'reponses': { 'R1': 'Oui','R2': 'Non'},
+        'img' : 'img_2.jgp',
+        'type': 'button',
+        'suite': questions.q4
+        },
+    'q3':{
+        'question': 'Fin du questionnaire', // Is this the property you're looking for ?
+        'reponses': null,
+        'img' : 'img_2.jgp',
+        'type': null,
+        'suite': null
+        },
+
+
+ques
+tions.question1.suite(['R1']);
+
+
+
+
+/*
 
 const questions =
-[
+
     {
         'question' : "Enter your home Address ",
         'reponse' : {
@@ -73,17 +80,26 @@ const questions =
                                                 {
                                                     'question' : "What will be using your cube ?", 
                                                     'reponse' : {
-                                                                    'R1' : "cuisine",
-                                                                    'R2' : "eau",
-                                                                    'R3' : "elec",
-                                                                    'R4' : "SdB",
-                                                                    'R5' : "complement ",
-                                                                    'R6' : "autre"
+                                                                    'R1' : "bureau",
+                                                                    'R2' : "habitation",
+                                                                    'R3' : "garage",
+                                                                    'R4' : "grange",
+                                                                    'R5' : "autre1",
+                                                                    'R6' : "autre2"
                                                                 },
                                                     'img' : 'img_4.jpg',
                                                     'suite' :
-                                                        {
-==================================================================================================================                                                                    
+                                                        { Do you want a Kitchen or Bathroom? (Image 5)
+                                                            'S1' :
+                                                            {
+                                                                'question' : "Do you want a Kitchen or Bathroom ?", 
+                                                                'reponse' : yesNo,
+                                                                'img' : 'img_4.jpg',
+                                                                'suite' :
+                                                                    { Do you want a Kitchen or Bathroom? (Image 5)
+            ==================================================================================================================                                                                    
+                                                                    }
+                                                            }                                                          
                                                         }
                                                 },
                                                 'S2' :
@@ -99,9 +115,6 @@ const questions =
                     }
             }
     }
-]
-        
-
 
  4       {
             'question' : 'Vas-tu aller voir le docteur ?', 
@@ -146,3 +159,5 @@ const modele_questions =
             'path' : 'Q0>R-n>Q-n'
         }
     ]
+
+    */
