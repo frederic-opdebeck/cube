@@ -1,5 +1,16 @@
-function printresults(){
+function printResults(r){
     console.log('coucou')
+    const table = document.querySelector('.recapListe')
+    for (let i=0;i<r.length;i++){
+        tr = document.createElement('tr')
+        table.appendChild(tr)
+            th1 = document.createElement('th')
+            tr.appendChild(th1)
+                th1.textContent = r[i].laQuestion
+            th2 = document.createElement('th')
+            tr.appendChild(th2)
+                    th2.textContent = r[i].laReponse
+    }
 }
 let recap = [];
 const questions = {
@@ -76,9 +87,9 @@ const questions = {
         'question': 'Quelle type de consctruction aimez-vous le plus ?', // Which look do you like most? (Image 11-12-13)
         'reponses': { 'R1': 'img_11 en bg', 'R2': 'img_12 en bg', 'R3' :'img_13 en bg'},
         'img' : ['img_11.jpg','img_12.jpg','img_13.jpg'],
-        'type': 'button',
+        'type': 'radio',
         'suite':function (rep){
-            printresults(recap);
+            printResults(recap);
             return writequestion('q9');   
         }
         // fonction pour Récapituler de toutes les q et r associées + envoie d"un mail et proposer envoie de mail telechargement de la config'
@@ -87,7 +98,7 @@ const questions = {
         'question': 'Voulez-vous sauvegarder votre rapport ?', // Which look do you like most? (Image 11-12-13)
         'reponses': { 'R1': 'oui', 'R2': 'non'},
         'img' : ['img_9.jpg'],
-        'select': { 'S1': ''},
+        'type': 'radio',
         'suite':function (rep){
 
             return writequestion('q9bis');   
@@ -100,7 +111,7 @@ const questions = {
         'img' : ['img_9.jpg'],
         'type': 'radio',
         'suite':function (rep){
-            printResults()
+            if (rep.includes('R1')){ printResults(cap)}
             return writequestion('q10');   
         }
     },
