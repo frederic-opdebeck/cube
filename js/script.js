@@ -148,7 +148,7 @@ function writequestion(q){
                 r.setAttribute('id','R' + nbr)
                 r.setAttribute('class', 'buttonR')
                 r.textContent = questions[q].reponses[key];
-                document.getElementById('container').appendChild(r);
+                document.getElementById('questionReponses').appendChild(r);
 
                 r.addEventListener("click", function(){   
                     recap.push({ 'laQuestion' : questions[q].question , 'laReponse' : questions[q].reponses[r.id]});
