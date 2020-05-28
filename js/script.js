@@ -138,8 +138,9 @@ function writequestion(q){
                 r.addEventListener("click", function(){   
                     recap.push({ 'laQuestion' : questions[q].question , 'laReponse' : questions[q].reponses[r.id]});
                     console.log(recap)
-                    questions[q].suite(r.id)});
-                    nbr++
+                    questions[q].suite(r.id)
+                });
+                nbr++
         }
     }
 } 
