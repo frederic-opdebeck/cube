@@ -1,5 +1,8 @@
 function printResults(r){
-    console.log('coucou')
+    const resume = document.querySelector('.recap')
+    h2 = document.createElement('h2')
+    resume.appendChild(h2)
+        h2.textContent = 'Résumé du questionnaire'
     const table = document.querySelector('.recapListe')
     for (let i=0;i<r.length;i++){
         tr = document.createElement('tr')
@@ -11,6 +14,7 @@ function printResults(r){
             tr.appendChild(th2)
                     th2.textContent = r[i].laReponse
     }
+
 }
 let recap = [];
 const questions = {
@@ -100,18 +104,20 @@ const questions = {
         'img' : ['img_9.jpg'],
         'type': 'radio',
         'suite':function (rep){
-
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', './json.php');
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send('json=' + JSON.stringify(recap));
             return writequestion('q9bis');   
         }
         // fonction qui enoive un mail de récap au client potentiel
     },
     'q9bis':{
-        'question': "Voulez-vous nous l'envoyer par email ?", // Which look do you like most? (Image 11-12-13)
+        'question': "Voulez-vous nous l'envoyer par email ?", // 
         'reponses': { 'R1': 'oui', 'R2': 'non'},
         'img' : ['img_9.jpg'],
         'type': 'radio',
         'suite':function (rep){
-            if (rep.includes('R1')){ printResults(cap)}
             return writequestion('q10');   
         }
     },
