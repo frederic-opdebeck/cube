@@ -1,4 +1,4 @@
-let recap = [];
+const recap = {}
 const questions = {
     'q1':{
             'question': 'Habitez-vous vous en France ?', // Do you leave
@@ -129,17 +129,13 @@ function writequestion(q){
     for (const key in questions[q].reponses) {
         if (questions[q].reponses.hasOwnProperty(key)) {
                 let r = document.createElement("button");
-
                 r.setAttribute('id','R' + nbr)
                 r.setAttribute('class', 'buttonR')
+                console.log(r.id);
                 r.textContent = questions[q].reponses[key];
                 document.getElementById('container').appendChild(r);
-
-                r.addEventListener("click", function(){   
-                    recap.push({ 'laQuestion' : questions[q].question , 'laReponse' : questions[q].reponses[r.id]});
-                    console.log(recap)
-                    questions[q].suite(r.id)});
-                    nbr++
+                r.addEventListener("click", function(){questions[q].suite(r.id)});
+                nbr++
         }
     }
 } 
