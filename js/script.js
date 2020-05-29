@@ -21,7 +21,7 @@ const questions = {
     'q0':{
         'question': 'Commencer la création du cube?', // Do you leave
         'reponses': { 'R1': 'Commencer'},
-        'img' : ['img_1.jgp'],
+        'img' : ['q0_0.jgp'],
         'type': 'radio',
         'suite':function (rep){
                 return writequestion('q1');
@@ -30,7 +30,7 @@ const questions = {
     'q1':{
             'question': 'Habitez-vous vous en France ?', // Do you leave
             'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-            'img' : ['img_1.jgp'],
+            'img' : ['q1_0.jgp'],
             'type': 'radio',
             'suite':function (rep){
                 if (rep.includes('R1')){
@@ -43,7 +43,7 @@ const questions = {
     'q2':{
             'question': 'A quoi servira votre CUBE ?', // What will you be using your Cube for ?
             'reponses': { 'R1': '1','R2': '2','R3': '3','R4': '4','R5': '5','R6': '6' },
-            'img' : ['img_4.jgp'],
+            'img' : ['q2_0.jgp'],
             'type': 'radio',
             'suite': function (rep){
                     return writequestion('q4');
@@ -52,14 +52,14 @@ const questions = {
     'q3':{
             'question': 'Fin du questionnaire', // Is this the property you're looking for ?
             'reponses': null,
-            'img' : ['img_2.jgp'],
+            'img' : ['q3_0.jgp'],
             'type': null,
             'suite': null
         },
     'q4':{
             'question': 'Voulez-vous : une baignoire ou une cuisine ?', // 'Do you want a Kitchen or Bathroom?',
             'reponses': { 'R1': 'Une baignoire', 'R2': 'Une cuisine'},
-            'img' : ['img_5.jgp'],
+            'img' : ['q4_0.jgp'],
             'type': 'radio',
             'suite':function (rep){
                     return writequestion('q5');
@@ -77,7 +77,7 @@ const questions = {
     'q6':{
             'question': 'Avez-vous au moins une construction sur votre terrain ?', // Do you have any Construction in your Backyard? (Image 6)
             'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-            'img' : ['img_6'],
+            'img' : ['q6_0'],
             'type': 'radio',
             'suite':function (rep){
                 if (rep.includes('R1')){
@@ -90,7 +90,7 @@ const questions = {
     'q7':{
         'question': 'Voulez-vous détruire cette construction ?', // Would you like to remove this structure? (Image 7)
         'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-        'img' : ['img_7'],
+        'img' : ['q7_0'],
         'type': 'radio',
         'suite':function (rep){
                 return writequestion('q8');   
@@ -99,7 +99,7 @@ const questions = {
     'q8':{
         'question': 'Quelle type de consctruction aimez-vous le plus ?', // Which look do you like most? (Image 11-12-13)
         'reponses': { 'R1': 'img_11 en bg', 'R2': 'img_12 en bg', 'R3' :'img_13 en bg'},
-        'img' : ['img_11.jpg','img_12.jpg','img_13.jpg'],
+        'img' : ['q8_0.jpg','q8_1.jpg','q8_2.jpg'],
         'type': 'radio',
         'suite':function (rep){
             printResults(recap);
@@ -110,7 +110,7 @@ const questions = {
     'q9':{
         'question': 'Voulez-vous sauvegarder votre rapport ?', // Which look do you like most? (Image 11-12-13)
         'reponses': { 'R1': 'oui', 'R2': 'non'},
-        'img' : ['img_9.jpg'],
+        'img' : ['q9_0.jpg'],
         'type': 'radio',
         'suite':function (rep){
             var xhr = new XMLHttpRequest();
@@ -124,7 +124,7 @@ const questions = {
     'q9bis':{
         'question': "Voulez-vous nous l'envoyer par email ?", // 
         'reponses': { 'R1': 'oui', 'R2': 'non'},
-        'img' : ['img_9.jpg'],
+        'img' : ['q9bis_0.jpg'],
         'type': 'radio',
         'suite':function (rep){
             return writequestion('q10');   
@@ -133,7 +133,7 @@ const questions = {
     'q10':{
         'question': 'Achetez-vous votre CUBE ?', // Which look do you like most? (Image 11-12-13)
         'reponses': { 'R1': 'oui', 'R2': 'non'},
-        'img' : ['img_17.jpg','img_18.jpg'],
+        'img' : ['q10_0.jpg','q10_1.jpg'],
         'type': 'button',
         'suite':function (rep){
             if (rep.includes('R1')){
