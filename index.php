@@ -2,7 +2,7 @@
 require_once('./include/init.php');
 require_once('./user/register.php');
 require_once('./user/userConnect.php');
-
+echo '<header>';
 if(!isset($_SESSION['login']) && !isset($_GET['register'])){
     echo '<a href="./index.php?register">register</a>';
     echo '
@@ -55,6 +55,7 @@ if(isset($_POST['disconnect'])) {
     session_destroy();
     header('Location: index.php');
 }
+echo '</header>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,17 +66,20 @@ if(isset($_POST['disconnect'])) {
     <title>Document</title>
 </head>
 <body>
-    <h1>CUBE</h1>
-    <div id="container">
-        <div id="questionReponses" class="classquichange">
-            <h2 id="question"></h2>
+
+    <section class="contenu">
+        <h1>CUBE</h1>
+        <div id="container">
+            <div id="questionReponses" class="classquichange">
+                <h2 id="question"></h2>
+            </div>
         </div>
-    </div>
-    <section class="recap">
-        <table class="recapListe">
+        <section class="recap">
+            <table class="recapListe">
 
-        </table>
+            </table>
 
+        </section>
     </section>
 </body>
 <script type="text/javascript" src="js/script.js"></script>
