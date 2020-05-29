@@ -21,7 +21,7 @@ const questions = {
     'q0':{
         'question': 'Commencer la création du cube?', // Do you leave
         'reponses': { 'R1': 'Commencer'},
-        'img' : ['img_1.jgp'],
+        'img' : ['q0_0.jgp'],
         'type': 'radio',
         'suite':function (rep){
                 return writequestion('q1');
@@ -30,7 +30,7 @@ const questions = {
     'q1':{
             'question': 'Habitez-vous vous en France ?', // Do you leave
             'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-            'img' : ['img_1.jgp'],
+            'img' : ['q_1.jgp'],
             'type': 'radio',
             'suite':function (rep){
                 if (rep.includes('R1')){
