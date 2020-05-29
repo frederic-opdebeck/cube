@@ -44,6 +44,7 @@ const questions = {
             'question': 'A quoi servira votre CUBE ?', // What will you be using your Cube for ?
             'reponses': { 'R1': '1','R2': '2','R3': '3','R4': '4','R5': '5','R6': '6' },
             'img' : ['img_4.jgp'],
+            'class' : 'question2',
             'type': 'radio',
             'suite': function (rep){
                     return writequestion('q4');
@@ -170,12 +171,13 @@ function writequestion(q){
     for (const key in questions[q].reponses) {
         if (questions[q].reponses.hasOwnProperty(key)) {
                 let r = document.createElement("button");
-
+                let myClass = document.getElementById('questionReponses').classList;
                 r.setAttribute('id','R' + nbr)
                 r.setAttribute('class', 'buttonR')
                 r.textContent = questions[q].reponses[key];
+                document.getElementById('questionReponses').classList.replace(myClass, questions[q].class);
                 document.getElementById('questionReponses').appendChild(r);
-
+                console.log(questions[q].class);
                 r.addEventListener("click", function(){   
                     recap.push({ 'laQuestion' : questions[q].question , 'laReponse' : questions[q].reponses[r.id]});
                     console.log(recap)

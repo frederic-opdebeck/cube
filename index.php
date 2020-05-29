@@ -65,7 +65,6 @@ if(isset($_POST['disconnect'])) {
     <title>Document</title>
 </head>
 <body>
-    <h1>CUBE</h1>
     <div id="container">
         <div id="questionReponses" class="classquichange">
             <h2 id="question"></h2>
