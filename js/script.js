@@ -43,8 +43,6 @@ const questions = {
     'q2':{
             'question': 'A quoi servira votre CUBE ?', // What will you be using your Cube for ?
             'reponses': { 'R1': '1','R2': '2','R3': '3','R4': '4','R5': '5','R6': '6' },
-            'img' : ['img_4.jgp'],
-            'class' : 'question2',
             'type': 'radio',
             'suite': function (rep){
                     return writequestion('q4');
