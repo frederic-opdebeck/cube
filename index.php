@@ -4,7 +4,7 @@ require_once('./user/register.php');
 require_once('./user/userConnect.php');
 echo '<header>';
 if(!isset($_SESSION['login']) && !isset($_GET['register'])){
-    echo '<a href="./index.php?register">register</a>';
+    echo '<div class="register"><a href="./index.php?register">register</a></div>';
     echo '
     <div id="userConnect">
         <form action="index.php" method="POST">
