@@ -1,13 +1,10 @@
 <?php  
 session_start();
 require 'config.php';
-
 require_once 'tools.php';
-
-require 'traitement_index.php';
 //initialisation des class
 function classAutoload($className) {
-    $path = array('model/');
+    $path = array('./model/');
     $extension = '.class.php';
     // $className = strtolower($className);
     $className = str_replace('\\', '/', $className);
@@ -20,6 +17,4 @@ function classAutoload($className) {
     } 
 }
 spl_autoload_register('classAutoload');
-
-
 ?>
