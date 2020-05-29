@@ -1,94 +1,28 @@
-html, html *{
-    font-size: 16px;
+body{
+    color: #333;
+    background-color: #f1f1f1;
 }
-nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    font-size: 150%;
-    list-style: none;
-    margin: 5px;
-    padding: 3px;
+h2{
+    font-size: 24px;
+    color: #00b3bf;
 }
-nav ul li{
-    margin: 5px;
-    padding: 3px;
+.q2{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 200px);
+    column-gap: 10px;
+    row-gap: 10px;
 }
-#addBloc{
-    margin-top:10px;
+.q2 h2{
+    text-align: center;
+    grid-row: 1;
+    grid-column: 1/4;
 }
-#formQuestion{
-    max-width:1000px;
-    min-height: 70px;
-    border:1px solid black;
-    border-radius: 5px;
-    margin: 0px auto;
-    padding:10px 25px;
-    text-align:left;
+.q2 button{
+    border: 1px solid white;
+    border-radius: 14px;
+    height: 100px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(0,0,0,.05);
+    font-size: 20px;
 }
-#formQuestion  div label,
-#formQuestion  div p{
-    font-size:16px;
-    margin-right:5px;
-}
-#formQuestion  div.divQuestion{
-    padding: 5px 0px;
-
-}
-/* dans #formQuestion */
-#divButtonreponse,
-#divInputReponse{
-    padding: 5px 0px;  
-}
-#divInputReponse{
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-#addBloc button {
-    font-size:14px;
-    padding: 3px;
-    width: 150px;
-    height: 35px;
-
-    background-color: #DADADA;
-    border:1px solid black;
-    margin-right:5px;
-    border-radius: 3px;
-    color:black;
-}
-/* 
-#formQuestion button:hover {
-    font-size:110%;
-}
-*/
-#formQuestion input[type=text]{
-    min-width:150px;
-    height: 35px;
-    border:1px solid #222;
-    border-radius: 3px;
-    padding:2px;
-}
-#addBloc button:hover,
-#addBloc input[type=submit]:hover{
-    letter-spacing: 110%;
-}
-#addBloc input[type=submit]{
-    font-size:14px;
-    padding: 3px;
-    width: 150px;
-    height: 35px;
-    margin:5px 0px;
-
-    background-color: #FCFCFC;
-    border:1px solid black;
-    margin-right:5px;
-    border-radius: 3px;
-    color:black;
-}
-

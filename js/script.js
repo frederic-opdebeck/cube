@@ -42,7 +42,7 @@ const questions = {
         },
     'q2':{
             'question': 'A quoi servira votre CUBE ?', // What will you be using your Cube for ?
-            'reponses': { 'R1': '1','R2': '2','R3': '3','R4': '4','R5': '5','R6': '6' },
+            'reponses': { 'R1': "Chambre d'hôte",'R2': 'Commerce','R3': 'Demenagement','R4': 'Bureau','R5': 'Piscine','R6': 'Autre' },
             'img': ['q2_0.jpg'],
             'type': 'radio',
             'suite': function (rep){
@@ -188,4 +188,4 @@ function writequestion(q){
 } 
 };
 
-writequestion('q1');
+writequestion('q2');
