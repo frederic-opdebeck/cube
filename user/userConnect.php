@@ -11,20 +11,20 @@ if(isset($_POST['submit'])) {
         $passwordCorrect = password_verify($_POST['password'], $result['pass']);
 
         if(!$result) {
-            echo 'Mauvais login ou mot de passe';
+            echo 'Mauvais login ou mot de passe ';
         }
         else {
             if($passwordCorrect) {
                 $_SESSION['login'] = $result['login'];
-                echo 'Vous êtes désormais connecté';
+                echo 'Vous êtes désormais connecté ';
             }
             else {
-                echo 'Mauvais login ou mot de passe';
+                echo 'Mauvais login ou mot de passe ';
             }
         }
     }
     else {
-        echo 'Mauvais login ou mot de passe';
+        echo 'Mauvais login ou mot de passe ';
     }
 }
 ?>

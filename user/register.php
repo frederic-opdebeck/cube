@@ -12,6 +12,8 @@ if(isset($_POST['submit2'])) {
             $req->bindValue(':prenom', $_POST['registerPrenom']);
             $req->execute();
         }
+    } else{
+        echo 'Vous devez saisir deux fois le même mot de passse ';
     }
 }
 ?>
