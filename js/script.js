@@ -14,7 +14,6 @@ function printResults(r){
             tr.appendChild(th2)
                     th2.textContent = r[i].laReponse
     }
-
 }
 let recap = [];
 const questions = {
