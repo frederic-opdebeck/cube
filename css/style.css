@@ -2,27 +2,42 @@ body{
     color: #333;
     background-color: #f1f1f1;
 }
+
+#questionReponses{
+    display: grid;
+    justify-content: center;
+    column-gap: 10px;
+    row-gap: 10px;
+    gap:auto;
+}
 h2{
     font-size: 24px;
     color: #00b3bf;
-}
-.q2{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(3, 200px);
-    column-gap: 10px;
-    row-gap: 10px;
-}
-.q2 h2{
     text-align: center;
     grid-row: 1;
     grid-column: 1/4;
 }
-.q2 button{
+button{
     border: 1px solid white;
     border-radius: 14px;
     height: 100px;
     background-color: white;
     box-shadow: 0 1px 30px rgba(0,0,0,.05);
     font-size: 20px;
+}
+button:hover,
+button:active,
+button:focus{
+    border: 1px solid #00b3bf;
+    box-shadow: 0 1px 30px rgba(0,178,191,.05);
+    /* convert => http://www.proftnj.com/RGB3.htm */
+}
+.q0,.q5{
+    grid-template-columns: repeat(1, 200px);
+}
+.q1,.q4,.q6,.q7,.q9,.q9bis,.q10{
+    grid-template-columns: repeat(2, 200px);
+}
+.q2,.q8{
+    grid-template-columns: repeat(3, 200px);
 }
