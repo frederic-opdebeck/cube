@@ -18,15 +18,11 @@ function printResults(r){
 let recap = [];
 const questions = {
     'q0':{
-        'question': 'Saisiez une adresse', // Do you leave
+        'question': 'Saisisez une adresse', // Do you leave
         'reponses': { 'R1': 'Commencer'},
         'img' : ['q0_0.jgp'],
         'type': 'radio',
         'suite':function (rep){
-            Gp.Services.getConfig({
-                apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
-                onSuccess: go
-              });
                 return writequestion('q1');
         }
     },
