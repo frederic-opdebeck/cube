@@ -26,6 +26,7 @@ save_debug($txt,$file)
 aht($t)
 */
 
+
 function is_log() {
 	if (isset($_SESSION['login']) && $_SESSION['login']===TRUE) {
 	} else {
