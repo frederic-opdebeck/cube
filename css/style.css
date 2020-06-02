@@ -9,6 +9,8 @@ body{
     column-gap: 10px;
     row-gap: 10px;
     gap:auto;
+    width: 650px;
+    margin: 0 auto;
 }
 h2{
     font-size: 24px;
@@ -24,6 +26,9 @@ button{
     background-color: white;
     box-shadow: 0 1px 30px rgba(0,0,0,.05);
     font-size: 20px;
+    width: 200px;
+    margin:auto;
+    font-size: 30px;
 }
 button:hover,
 button:active,
@@ -33,10 +38,10 @@ button:focus{
     /* convert => http://www.proftnj.com/RGB3.htm */
 }
 .q0,.q5{
-    grid-template-columns: repeat(1, 200px);
+    grid-template-columns: repeat(1, 600px);
 }
 .q1,.q4,.q6,.q7,.q9,.q9bis,.q10{
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: repeat(2, 300px);
 }
 .q2,.q8{
     grid-template-columns: repeat(3, 200px);
