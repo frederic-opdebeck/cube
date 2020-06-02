@@ -2,6 +2,22 @@ body{
     color: #333;
     background-color: #f1f1f1;
 }
+header{
+    max-width: 100%;
+    text-align: right;
+    border-bottom: 1px solid black;
+}
+header nav{
+    display: flex;
+    flex-direction: row-reverse; 
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 20px;
+}
+header  nav> div{
+    min-width:80px;
+}
+
 h2{
     font-size: 24px;
     color: #00b3bf;

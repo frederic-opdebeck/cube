@@ -1,6 +1,6 @@
 <?php  
 session_start();
-require 'config.php';
+// require 'config.php';
 require_once 'tools.php';
 //initialisation des class
 function classAutoload($className) {
