@@ -19,7 +19,7 @@ function printResults(r){
 let recap = [];
 const questions = {
     'q0':{
-        'question': 'Commencer la création du cube?', // Do you leave
+        'question': 'Saisiez une adresse', // Do you leave
         'reponses': { 'R1': 'Commencer'},
         'img' : ['q0_0.jgp'],
         'type': 'radio',
@@ -28,7 +28,7 @@ const questions = {
         }
     },
     'q1':{
-            'question': 'Habitez-vous vous en France ?', // Do you leave
+            'question': 'Est-ce le terrain que vous recherchez?', // Do you leave
             'reponses': { 'R1': 'Oui', 'R2': 'Non'},
             'img' : ['q1_0.jgp'],
             'type': 'radio',
@@ -36,7 +36,7 @@ const questions = {
                 if (rep.includes('R1')){
                     return writequestion('q2');
                 } else {
-                    return writequestion('q3');
+                    return writequestion('q0');
                 }
             }
         },
@@ -57,8 +57,8 @@ const questions = {
             'suite': null
         },
     'q4':{
-            'question': 'Voulez-vous : une baignoire ou une cuisine ?', // 'Do you want a Kitchen or Bathroom?',
-            'reponses': { 'R1': 'Une baignoire', 'R2': 'Une cuisine'},
+            'question': 'Voulez-vous une salle de bain ou une cuisine ?', // 'Do you want a Kitchen or Bathroom?',
+            'reponses': { 'R1': 'Un cuisine et une salle de bain', 'R2': 'Seulement une salle de bain', 'R3': 'Aucune'},
             'img' : ['q4_0.jgp'],
             'type': 'radio',
             'suite':function (rep){
@@ -66,29 +66,32 @@ const questions = {
             }
         },
     'q5':{
-            'question': 'Quelle est votre surface préférée ?', 
-            'reponses': { 'R1' : 'm2'},
+            'question': 'Avez vous une autre structure sur votre terrain?', 
+            'reponses': { 'R1' : 'Oui', 'R2' : 'Non'},
             'img' : null,
             'type': 'number',
             'suite':function (rep){
-                    return writequestion('q6');
-            }
-    },
-    'q6':{
-            'question': 'Avez-vous au moins une construction sur votre terrain ?', // Do you have any Construction in your Backyard? (Image 6)
-            'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-            'img' : ['q6_0'],
-            'type': 'radio',
-            'suite':function (rep){
                 if (rep.includes('R1')){
-                    return writequestion('q7');
+                    return writequestion('q6');
                 } else {
                     return writequestion('q8');
                 }
             }
     },
+
+    // PENSER A DEMANDER SI IL Y A PLUSIEURS STRUCTURE SUR LE TERRAIN 
+
+    'q6':{
+            'question': 'Quel type de structure est-ce?', // Do you have any Construction in your Backyard? (Image 6)
+            'reponses': { 'R1': 'Garage', 'R2': 'Espace de vie avec plomberie', 'R3' : 'Espace de vie sans plomberie', 'R4' : 'Autre'},
+            'img' : ['q6_0'],
+            'type': 'radio',
+            'suite':function (rep){
+                    return writequestion('q7');
+                }
+    },
     'q7':{
-        'question': 'Voulez-vous détruire cette construction ?', // Would you like to remove this structure? (Image 7)
+        'question': 'Voulez-vous détruire cette structure ?', // Would you like to remove this structure? (Image 7)
         'reponses': { 'R1': 'Oui', 'R2': 'Non'},
         'img' : ['q7_0'],
         'type': 'radio',
@@ -188,4 +191,4 @@ function writequestion(q){
 } 
 };
 
-writequestion('q2');
+writequestion('q0');
