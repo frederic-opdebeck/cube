@@ -227,7 +227,7 @@ function go() {
     }, { // leafletParams
       opacity: 0.7,
     }).addTo(map);
-    var searchCtrl = L.geoportalControl.SearchEngine({});
+    var searchCtrl = L.geoportalControl.SearchEngine({'zoomTo':18});
     map.addControl(searchCtrl);
     
     L.geoportalLayer.WMS({
