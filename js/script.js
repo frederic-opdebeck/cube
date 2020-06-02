@@ -23,6 +23,10 @@ const questions = {
         'img' : ['q0_0.jgp'],
         'type': 'radio',
         'suite':function (rep){
+            Gp.Services.getConfig({
+                apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
+                onSuccess: go
+              });
                 return writequestion('q1');
         }
     },

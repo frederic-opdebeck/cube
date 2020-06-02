@@ -64,6 +64,12 @@ echo '</header>';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ignf.github.io/geoportal-access-lib/latest/dist/GpServices.js"></script>
+    <script src="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.js"></script>
+    <link rel="stylesheet" href="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.css">
     <title>Document</title>
 </head>
 <body>
@@ -71,6 +77,7 @@ echo '</header>';
         <div id="container">
             <div id="questionReponses" class="classquichange">
                 <h2 id="question"></h2>
+                <div id="mapid"></div>
             </div>
         </div>
         <section class="recap">
