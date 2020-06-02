@@ -221,7 +221,7 @@ function writequestion(q){
 writequestion('q0');
 
 function go() {
-    map = L.map("mapid",{crs : L.CRS.EPSG4326}).setView([48.845, 2.424], 10);
+    map = L.map("mapid",{crs : L.CRS.EPSG4326,minZoom: 10, maxZoom:18}).setView([48.845, 2.424], 10);
     L.geoportalLayer.WMS({
       layer: "OI.OrthoimageCoverage",
     }, { // leafletParams
