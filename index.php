@@ -3,6 +3,7 @@
         <div id="container">
             <div id="questionReponses" class="classquichange">
                 <h2 id="question"></h2>
+                <div id="chargement"></div>
                 <div id="mapid"></div>
             </div>
         </div>
