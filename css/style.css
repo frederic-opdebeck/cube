@@ -2,47 +2,145 @@ body{
     color: #333;
     background-color: #f1f1f1;
 }
-
-#questionReponses{
-    display: grid;
-    justify-content: center;
-    column-gap: 10px;
-    row-gap: 10px;
-    gap:auto;
-    width: 650px;
-    margin: 0 auto;
-}
 h2{
     font-size: 24px;
     color: #00b3bf;
+    font-weight: 300;
+}
+.q1{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 300px 300px;
+    column-gap: 20px;
+}
+.q1 h2{
+    grid-column: 1/3;
+    justify-self: center;
+}
+.q1 button{
+    border: 1px solid white;
+    border-radius: 14px;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(0,0,0,.05);
+    font-size: 20px;
+    grid-row: 2;
+
+}
+.q1 button:hover{
+    background-color:#00b3bf ;
+    color: white;
+}
+.q2{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 200px);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.q2 h2{
     text-align: center;
     grid-row: 1;
     grid-column: 1/4;
 }
-button{
+.q2 button{
     border: 1px solid white;
     border-radius: 14px;
     height: 100px;
     background-color: white;
     box-shadow: 0 1px 30px rgba(0,0,0,.05);
     font-size: 20px;
-    width: 200px;
-    margin:auto;
-    font-size: 30px;
 }
-button:hover,
-button:active,
-button:focus{
-    border: 1px solid #00b3bf;
-    box-shadow: 0 1px 30px rgba(0,178,191,.05);
-    /* convert => http://www.proftnj.com/RGB3.htm */
+.q2 button:hover{
+    background-color:#00b3bf ;
+    color: white;
 }
-.q0,.q5{
-    grid-template-columns: repeat(1, 600px);
+.q4{
+    display: grid;
+    justify-content: center;
+    row-gap: 20px;
+    
 }
-.q1,.q4,.q6,.q7,.q9,.q9bis,.q10{
-    grid-template-columns: repeat(2, 300px);
+.q4 button{
+    border: 1px solid white;
+    border-radius: 14px;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(0,0,0,.05);
+    font-size: 20px;
 }
-.q2,.q8{
-    grid-template-columns: repeat(3, 200px);
+.q4 button:hover{
+    background-color:#00b3bf ;
+    color: white;
+}
+.q5{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 300px 300px;
+    column-gap: 20px;
+}
+.q5 h2{
+    grid-column: 1/3;
+    justify-self: center;
+}
+.q5 button{
+    border: 1px solid white;
+    border-radius: 14px;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(0,0,0,.05);
+    font-size: 20px;
+    grid-row: 2;
+
+}
+.q5 button:hover{
+    background-color:#00b3bf ;
+    color: white;
+}
+.q6{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 300px 300px;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.q6 h2{
+    grid-column: 1/3;
+    justify-self: center;
+}
+.q6 button{
+    border: 1px solid white;
+    border-radius: 14px;
+    height: 100px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(0,0,0,.05);
+    font-size: 20px;
+}
+.q6 button:hover{
+    background-color:#00b3bf ;
+    color: white;
+}
+.q7 {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 300px 300px;
+    column-gap: 20px;
+}
+.q7 h2{
+    grid-column: 1/3;
+    justify-self: center;
+}
+.q7 button{
+    border: 1px solid white;
+    border-radius: 14px;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(0,0,0,.05);
+    font-size: 20px;
+    grid-row: 2;
+
+}
+.q7 button:hover{
+    background-color:#00b3bf ;
+    color: white;
 }
