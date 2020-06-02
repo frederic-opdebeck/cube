@@ -191,3 +191,40 @@ function writequestion(q){
 };
 
 writequestion('q0');
+
+function go() {
+    map = L.map("mapid",{crs : L.CRS.EPSG4326}).setView([48.845, 2.424], 10);
+    L.geoportalLayer.WMS({
+      layer: "OI.OrthoimageCoverage",
+    }, { // leafletParams
+      opacity: 0.7,
+    }).addTo(map);
+    var searchCtrl = L.geoportalControl.SearchEngine({});
+    map.addControl(searchCtrl);
+    
+    L.geoportalLayer.WMS({
+      layer: "BU.Building"
+    },{
+        // on surcharche le style car les styles par defaut pour le WMS INSPIRE vecteur
+        // ne sont pas bien renseignes dans l'autoconf (en cours de correction)
+        styles : "inspire_common:DEFAULT",
+        transparent : true,
+    }).addTo(map);
+
+    L.geoportalLayer.WMS({
+      layer: "TN.RoadTransportNetwork",
+    },{
+        styles : "inspire_common:DEFAULT",
+        transparent : true,
+    }).addTo(map);
+
+    L.geoportalLayer.WMS({
+      layer: "HY.PhysicalWaters",
+    },{
+        styles : "inspire_common:DEFAULT",
+        transparent : true,
+    }).addTo(map);
+
+   
+    
+  }
