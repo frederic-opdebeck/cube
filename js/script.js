@@ -26,6 +26,7 @@ const questions = {
     'q0':{
         'question': 'Saisissez une adresse', // Do you leave
         'reponses': { 'R1': 'Valider mon adresse'},
+
         'img' : ['q0_0.jgp'],
         'type': 'radio',
         'carte' : function() {Gp.Services.getConfig({
