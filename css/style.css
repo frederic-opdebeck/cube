@@ -166,3 +166,8 @@ h2{
     height: 500px;
     box-shadow: 0 0 10px #999;
 }
+#chargement {
+    position: absolute;
+    top:250px;
+    left:50%;
+}
