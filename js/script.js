@@ -9,25 +9,36 @@ function printResults(r){
         table.appendChild(tr)
             th1 = document.createElement('th')
             tr.appendChild(th1)
-                th1.textContent = r[i].laQuestion
+            th1.textContent = r[i].laQuestion
             th2 = document.createElement('th')
             tr.appendChild(th2)
-                    th2.textContent = r[i].laReponse
+            if(i===0) {
+                th2.textContent = r[i].adresse
+            }
+            else {
+                th2.textContent = r[i].laReponse
+            }
+            
     }
 }
 let recap = [];
 const questions = {
     'q0':{
-        'question': 'Saisiez une adresse', // Do you leave
-        'reponses': { 'R1': 'Commencer'},
+        'question': 'Saisissez une adresse', // Do you leave
+        'reponses': { 'R1': 'Valider mon adresse'},
         'img' : ['q0_0.jgp'],
         'type': 'radio',
+        'carte' : function() {Gp.Services.getConfig({
+            apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
+            onSuccess: go
+          })},
         'suite':function (rep){
-            Gp.Services.getConfig({
-                apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
-                onSuccess: go
-              });
                 return writequestion('q1');
+        },
+        "adresse": function() {
+            if(document.querySelector("input[placeholder='Rechercher un lieu, une adresse']")) {
+                return document.querySelector("input[placeholder='Rechercher un lieu, une adresse']").value;
+            }
         }
     },
     'q1':{
@@ -167,6 +178,13 @@ function writequestion(q){
             document.querySelectorAll(".buttonR").forEach(e => e.parentNode.removeChild(e));
             }  
     }else{
+        if(q==='q0') {
+            questions[q].carte();
+        }
+        else {
+            let map = document.getElementById('mapid');
+            map.style.display = "none";
+        }
     let quest = document.getElementById("question");
     quest.textContent = questions[q].question;
     let nbr = 1
@@ -183,8 +201,13 @@ function writequestion(q){
                 document.getElementById('questionReponses').classList.replace(myClass, q);
                 document.getElementById('questionReponses').appendChild(r);
                 console.log(questions[q].class);
-                r.addEventListener("click", function(){   
+                r.addEventListener("click", function(){
+                    if(q!=='q0') {   
                     recap.push({ 'laQuestion' : questions[q].question , 'laReponse' : questions[q].reponses[r.id]});
+                    }
+                    else {
+                        recap.push({ 'laQuestion' : questions[q].question , 'adresse' : questions[q].adresse()});
+                    }
                     console.log(recap)
                     questions[q].suite(r.id)
                 });

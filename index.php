@@ -2,6 +2,25 @@
 require_once('./include/init.php');
 require_once('./user/register.php');
 require_once('./user/userConnect.php');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ignf.github.io/geoportal-access-lib/latest/dist/GpServices.js"></script>
+    <script src="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.js"></script>
+    <link rel="stylesheet" href="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.css">
+    <title>Document</title>
+</head>
+<body>
+<?php
 echo '<header>';
 if(!isset($_SESSION['login']) && !isset($_GET['register'])){
     echo '<div class="register"><a href="./index.php?register">register</a></div>';
@@ -57,22 +76,6 @@ if(isset($_POST['disconnect'])) {
 }
 echo '</header>';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ignf.github.io/geoportal-access-lib/latest/dist/GpServices.js"></script>
-    <script src="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.js"></script>
-    <link rel="stylesheet" href="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.css">
-    <title>Document</title>
-</head>
-<body>
     <section class="contenu">
         <div id="container">
             <div id="questionReponses" class="classquichange">
@@ -88,5 +91,5 @@ echo '</header>';
         </section>
     </section>
 </body>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="./js/script.js"></script>
 </html>
