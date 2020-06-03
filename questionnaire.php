@@ -28,17 +28,17 @@ if (isset($_POST)){
 ?>
 
 
-<section>
+<section class="questionnaire">
     <form action="questionnaire.php" method='post'>
-        <label for="kestion-select">Choisir la question à modifier :
+        <label for="kestion-select">Choisir la question à modifier :</label>
             <select name="kestion" id="kestion-select">
                 <?php foreach ($questions_select  as $question){ ?>
-                    <option value='<?php echo $question['id']; ?>'>
-                        <?php echo 'Question n° '.$question['id'].' : '.$question['question']; ?>
+                    <option value="<?php echo $question['id']; ?>">
+                        <?php echo "Question n° ".$question['id']." : ".$question['question']; ?>
                     </option>
                 <?php } ?>
-            </select>
-        </label>
+            </select">
+        
         <input type="submit" value="Valider">
     </form>
 
@@ -46,10 +46,13 @@ if (isset($_POST)){
         <label for="kestion">Voici la question que vous avez choisi de modifier : 
             <input type="text" id='kestion' value="<?php echo $the_kestion['question']; ?>">
         </label>
-        <label for="kestion-select">Voici ces réponses associées : </label>
+        <label for="kestion-select">Voici ces réponses associées que vous pouvez modifiées: </label>
+            <div>
+
             <?php foreach ($reponses_a_la_question  as $reponse){ ?>
-                <input type='text' name='<?php echo $reponse['id']; ?>' value='<?php echo $reponse['reponse']; ?>'>
+                <input type='text' name="<?php echo $reponse['id']; ?>" value="<?php echo $reponse['reponse']; ?>">
             <?php } ?>
+            </div>
         
 
         <input type="submit" value="Envoyer">
