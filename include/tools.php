@@ -346,7 +346,7 @@ function inverse_date($t,$sep) {
 //---------------------------------------------------------------
 // print_r + mise en form 
 function printr($t) {
-	echo "<pre>";
+	echo "<pre class='printr'>";
 	print_r($t);
 	echo "</pre>";
 }
