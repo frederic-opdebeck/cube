@@ -51,7 +51,7 @@ const questions = {
         'question': ajaxQuestion('q1'), // Do you leave
         'reponses': { 'R1': 'Valider mon adresse'},
 
-        'img' : ['q0_0.jgp'],
+        'img' : ['q0_0.jpg'],
         'type': 'radio',
         'carte' : function() {Gp.Services.getConfig({
             apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
@@ -69,7 +69,7 @@ const questions = {
     'q1':{
             'question': ajaxQuestion('q2'), // Do you leave
             'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-            'img' : ['q1_0.jgp'],
+            'img' : ['q1_0.jpg'],
             'type': 'radio',
             'suite':function (rep){
                 if (rep.includes('R1')){
@@ -91,14 +91,14 @@ const questions = {
     'q3':{
             'question': ajaxQuestion('q4'), // Is this the property you're looking for ?
             'reponses': null,
-            'img' : ['q3_0.jgp'],
+            'img' : ['q3_0.jpg'],
             'type': null,
             'suite': null
         },
     'q4':{
             'question': ajaxQuestion('q5'), // 'Do you want a Kitchen or Bathroom?',
             'reponses': { 'R1': 'Un cuisine et une salle de bain', 'R2': 'Seulement une salle de bain', 'R3': 'Aucune'},
-            'img' : ['q4_0.jgp'],
+            'img' : ['q4_0.jpg'],
             'type': 'radio',
             'suite':function (rep){
                     return writequestion('q5');
@@ -123,7 +123,7 @@ const questions = {
     'q6':{
             'question': ajaxQuestion('q7'), // Do you have any Construction in your Backyard? (Image 6)
             'reponses': { 'R1': 'Garage', 'R2': 'Espace de vie avec plomberie', 'R3' : 'Espace de vie sans plomberie', 'R4' : 'Autre'},
-            'img' : ['q6_0'],
+            'img' : ['q6_0.jpg'],
             'type': 'radio',
             'suite':function (rep){
                     return writequestion('q7');
@@ -132,7 +132,7 @@ const questions = {
     'q7':{
         'question': ajaxQuestion('q8'), // Would you like to remove this structure? (Image 7)
         'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-        'img' : ['q7_0'],
+        'img' : ['q7_0.jpg'],
         'type': 'radio',
         'suite':function (rep){
                 return writequestion('q8');   
@@ -140,8 +140,8 @@ const questions = {
     },
     'q8':{
         'question': ajaxQuestion('q9'), // Which look do you like most? (Image 11-12-13)
-        'reponses': { 'R1': 'img_11 en bg', 'R2': 'img_12 en bg', 'R3' :'img_13 en bg'},
-        'img' : ['q8_0.jpg','q8_1.jpg','q8_2.jpg'],
+        'reponses': { 'R1': '', 'R2': '', 'R3' :''},
+        'img' : null,
         'type': 'radio',
         'suite':function (rep){
             printResults(recap);
@@ -212,10 +212,11 @@ function writequestion(q){
         }
     let quest = document.getElementById("question");
     quest.textContent = questions[q].question;
+    document.getElementById('images').src = "./img/" + questions[q].img;
     let nbr = 1
     if(document.querySelectorAll('.buttonR')) {
         document.querySelectorAll(".buttonR").forEach(e => e.parentNode.removeChild(e));
-        }  
+        } 
     for (const key in questions[q].reponses) {
         if (questions[q].reponses.hasOwnProperty(key)) {
                 let r = document.createElement("button");
