@@ -28,8 +28,9 @@ echo '
 
         if(!isset($_SESSION['login']) && !isset($_GET['register'])){
             echo "<div class='register'><a href='./index.php?register'>S'inscrire</a></div>";
+            echo '<div id="userConnect">';
+
             echo '
-            <div id="userConnect">
                 <form action="index.php" method="POST">
                     <label name="login">Identifiant 
                     <input type="text" id="login" name="login"></label>
@@ -39,13 +40,16 @@ echo '
                 </form>
             </div>
             ';
+            if(isset($_SESSION['msgAboutConnexion'])){
+                echo '<label class="erreur">'.$_SESSION['msgAboutConnexion'].'</label>';
+            };
         }
         elseif(isset($_SESSION['login'])) {
-            echo 'Bonjour'.$_SESSION['login'];
             echo '
             <form action="index.php" method="POST">
             <input type="submit" name="disconnect" value="Se déconnecter">
             </form>';
+            echo '<label>Bonjour '.$_SESSION['login'].'</label>';
         }
 
         if(!isset($_SESSION['login'])&& isset($_GET['register'])){
