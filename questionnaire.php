@@ -105,11 +105,11 @@ if (isset($_POST)){
             <?php } ?>
         </div>
 
-        <label for="img">Photo actullement mise en background : 
+        <label for="img">Photo actuellement mise en background : 
             <span><?php echo $_SESSION['img_de_la_question']['nom']; ?></span>
             <img class='img_bg' src="<?php echo 'img/'.$_SESSION['img_de_la_question']['nom']; ?>" alt="Pas de photo">
         </label>
-        <label>Envoyez ce fichier : 
+        <label>Ajouter ou modifier la photo en background : 
         <input name="userFile" type="file" accept="image/png, image/jpeg"/></label>
         <?php if (isset($succesUpload) && isset($afficheImg)){
             echo $succesUpload;

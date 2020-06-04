@@ -24,6 +24,12 @@ h2{
     color: #00b3bf;
     font-weight: 300;
 }
+.recap{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: start;
+    align-items: start;
+}
 .q0{
     display: grid;
     row-gap: 20px;
