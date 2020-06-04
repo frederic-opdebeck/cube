@@ -27,6 +27,14 @@ if (isset($_POST)){
             $req->execute();
 
             $_SESSION['reponses_a_la_question'] = $req->fetchAll(PDO::FETCH_ASSOC);
+
+            $bdd = new Bdd;
+            $req = $bdd->bdd->prepare('SELECT nom FROM img  WHERE id_questions=:id');
+            $req->bindValue(':id', $_POST['kestion']);
+            $req->execute();
+
+            $_SESSION['img_de_la_question'] = $req->fetch(PDO::FETCH_ASSOC);
+           
         }
     }
     if(isset($_POST['modif_text']) && $_POST['modif_text'] === 'modif_text') {
@@ -50,13 +58,21 @@ if (isset($_POST)){
                 $req->bindValue(':id', $_SESSION['reponses_a_la_question'][$i]['id']);
                 $req->execute();
             }
+            // $fichier = $_FILES['userFile']['name'];
+            require('include/downloadFile_from_inputFile.php');
 
-                require('include/downloadFile_from_inputFile.php');
-                // ce fichier ressort ces deux constantes et un msg d'erreur que l'on peut appeler :
-                // echo $succesUpload;
-                // echo $afficheImg;
-                // echo $erreur;
+            // ce fichier ressort ces deux constantes et un msg que l'on peut appeler :
+            // echo $succesUpload;
+            // echo $afficheImg;
+            // echo $erreur;
 
+            if (isset($succesUpload) && isset($afficheImg)){
+                $bdd = new Bdd;
+                $req = $bdd->bdd->prepare("UPDATE img SET nom=:nom WHERE id_questions=:id");
+                $req->bindValue(':nom', $_FILES['userFile']['name']);
+                $req->bindValue(':id', $_SESSION['id_the_kestion']);
+                $req->execute();
+            }
             // header('Location:questionnaire.php' );  
     }
 }
@@ -88,6 +104,11 @@ if (isset($_POST)){
                 <input type='text' name="<?php echo $reponse['id']; ?>" value="<?php echo $reponse['reponse']; ?>">
             <?php } ?>
         </div>
+
+        <label for="img">Photo actullement mise en background : 
+            <span><?php echo $_SESSION['img_de_la_question']['nom']; ?></span>
+            <img class='img_bg' src="<?php echo 'img/'.$_SESSION['img_de_la_question']['nom']; ?>" alt="Pas de photo">
+        </label>
         <label>Envoyez ce fichier : 
         <input name="userFile" type="file" accept="image/png, image/jpeg"/></label>
         <?php if (isset($succesUpload) && isset($afficheImg)){

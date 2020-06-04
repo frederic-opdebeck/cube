@@ -27,14 +27,14 @@ echo '
 ';
 
         if(!isset($_SESSION['login']) && !isset($_GET['register'])){
-            echo '<div class="register"><a href="./index.php?register">register</a></div>';
+            echo "<div class='register'><a href='./index.php?register'>S'inscrire</a></div>";
             echo '
             <div id="userConnect">
                 <form action="index.php" method="POST">
-                    <label name="login">Identifiant</label>
-                    <input type="text" id="login" name="login">
-                    <label name="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
+                    <label name="login">Identifiant 
+                    <input type="text" id="login" name="login"></label>
+                    <label name="password">Mot de passe 
+                    <input type="password" id="password" name="password"></label>
                     <input type="submit" value="Se connecter" name="submit">
                 </form>
             </div>
