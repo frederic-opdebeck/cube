@@ -226,7 +226,16 @@ function writequestion(q){
 };
 
 writequestion('q0');
-
+if (typeof(Number.prototype.toRad) === "undefined") {
+    Number.prototype.toRad = function() {
+      return this * Math.PI / 180;
+    }
+  }
+function getTileURL(lat, lon, zoom) {
+    var xtile = parseInt(Math.floor( (lon + 180) / 360 * (1<<zoom) ));
+    var ytile = parseInt(Math.floor( (1 - Math.log(Math.tan(lat.toRad()) + 1 / Math.cos(lat.toRad())) / Math.PI) / 2 * (1<<zoom) ));
+    return "" + zoom + "/" + xtile + "/" + ytile;
+}
 function go() {
     map = L.map("mapid",{crs : L.CRS.EPSG4326,minZoom: 10, maxZoom:18}).setView([48.845, 2.424], 10);
     L.geoportalLayer.WMS({
@@ -234,7 +243,7 @@ function go() {
     }, { // leafletParams
       opacity: 0.7,
     }).addTo(map);
-    var searchCtrl = L.geoportalControl.SearchEngine({'zoomTo':18});
+    var searchCtrl = L.geoportalControl.SearchEngine({'zoomTo':18, 'displayAdvancedSearch':false, 'collapsed':false});
     map.addControl(searchCtrl);
     
     L.geoportalLayer.WMS({
@@ -244,23 +253,16 @@ function go() {
         // ne sont pas bien renseignes dans l'autoconf (en cours de correction)
         styles : "inspire_common:DEFAULT",
         transparent : true,
-    }).addTo(map);
-
-    L.geoportalLayer.WMS({
-      layer: "TN.RoadTransportNetwork",
-    },{
-        styles : "inspire_common:DEFAULT",
-        transparent : true,
-    }).addTo(map);
-
-    L.geoportalLayer.WMS({
-      layer: "HY.PhysicalWaters",
-    },{
-        styles : "inspire_common:DEFAULT",
-        transparent : true,
     }).on('load', () => {
-        let img = document.getElementById('imgChargement');
-        img.remove();
+        if(document.getElementById('imgChargement')){
+            let img = document.getElementById('imgChargement');
+            img.remove();
+
+        }
        }).addTo(map);
+    map.on('click', (e) => {
+        
+        console.log(getTileURL(e.latlng.lat, e.latlng.lng, map.getZoom()));
+    })
     
   }
