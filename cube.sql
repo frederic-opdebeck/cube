@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  mer. 03 juin 2020 à 09:39
+-- Généré le :  jeu. 04 juin 2020 à 13:51
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.3.8
 
@@ -24,7 +24,7 @@ CREATE TABLE `img` (
   `id` int(10) UNSIGNED NOT NULL,
   `nom` varchar(31) DEFAULT NULL,
   `id_questions` int(10) UNSIGNED NOT NULL,
-  `description` varchar(63) DEFAULT NULL COMMENT 'Dans notre JSON d’origine, img correspond à :\n‘ img ‘ : [‘q0’ : ‘q0_0.jpg’]\nSi plusieurs images :\n‘ Img ‘ : [‘q0’ : ‘q0_0.jpg’,‘q0’ : ‘q0_1.jpg’,‘q0’ : ‘q0_2.jpg’]\n'
+  `description` varchar(63) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `questions` (
   `id` int(10) UNSIGNED NOT NULL,
   `question` varchar(255) NOT NULL,
   `type` enum('radio','select','nombre','null') NOT NULL DEFAULT 'radio',
-  `description` varchar(63) DEFAULT NULL COMMENT 'questions, correspond à :\nQuestions[q0]'
+  `description` varchar(63) DEFAULT NULL COMMENT 'questions, correspond à : Questions[q0]'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -102,15 +102,15 @@ INSERT INTO `reponses` (`id`, `reponse`, `id_questions`, `description`) VALUES
 (1, 'Commencer', 1, NULL),
 (2, 'Oui', 2, NULL),
 (3, 'Non', 2, NULL),
-(4, 'Chambre d\'hôte', 3, NULL),
+(4, 'Chambre d\'hôt', 3, NULL),
 (5, 'Commerce', 3, NULL),
 (6, 'Demenagement', 3, NULL),
 (7, 'Bureau', 3, NULL),
 (8, 'Piscine', 3, NULL),
 (9, 'Autre', 3, NULL),
 (10, '', 4, NULL),
-(11, 'Oui', 5, NULL),
-(12, 'Non', 5, NULL),
+(11, 'Une cuisine et une salle de bain', 5, NULL),
+(12, 'Seulement une cuisine', 5, NULL),
 (13, 'Oui', 6, NULL),
 (14, 'Non', 6, NULL),
 (15, 'Garage', 7, NULL),
@@ -128,7 +128,8 @@ INSERT INTO `reponses` (`id`, `reponse`, `id_questions`, `description`) VALUES
 (29, 'Non', 11, NULL),
 (30, 'Oui', 12, NULL),
 (31, 'Non', 12, NULL),
-(32, '', 13, NULL);
+(32, '', 13, NULL),
+(33, 'Seulement une salle de bain', 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -204,7 +205,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT pour la table `reponses`
 --
 ALTER TABLE `reponses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT pour la table `user`
