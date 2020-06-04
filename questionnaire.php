@@ -49,6 +49,7 @@ if (isset($_POST)){
                 $req->bindValue(':id', $_SESSION['reponses_a_la_question'][$i]['id']);
                 $req->execute();
             }
+            header('Location:questionnaire.php' );
     }
 }
 ?>
