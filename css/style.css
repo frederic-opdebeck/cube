@@ -297,4 +297,12 @@ section.questionnaire form{
     margin:5px 5px;
     padding: 5px;
 }
+.questionnaire form:nth-child(2) label{
+    min-height: 40px;
+    margin-top: 5px;
+    padding: 5px 0;
+}
+p.erreur{
+    color:rgb(150, 0, 0);
+}
 
