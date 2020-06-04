@@ -14,7 +14,7 @@ require_once('user/userConnect.php');
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ignf.github.io/geoportal-access-lib/latest/dist/GpServices.js"></script>
+    <script src="./js/GpServices.js"></script>
     <script src="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.js"></script>
     <link rel="stylesheet" href="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.css">
     <title>Document</title>
