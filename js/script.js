@@ -184,7 +184,7 @@ function writequestion(q){
         quest.textContent = questions[q].question;
         if(document.querySelectorAll('.buttonR')) {
             document.querySelectorAll(".buttonR").forEach(e => e.parentNode.removeChild(e));
-            }  
+            }
     }else{
         if(q==='q0') {
             questions[q].carte();

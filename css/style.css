@@ -1,6 +1,7 @@
 body{
     color: #333;
     background-color: #f1f1f1;
+    font-size: 16px;
 }
 header{
     max-width: 100%;
@@ -23,6 +24,10 @@ h2{
     color: #00b3bf;
     font-weight: 300;
 }
+body pre.printr{
+    line-height: 1;
+}
+
 .q1{
     display: grid;
     justify-content: center;
@@ -154,7 +159,6 @@ h2{
     box-shadow: 0 1px 30px rgba(0,0,0,.05);
     font-size: 20px;
     grid-row: 2;
-
 }
 .q7 button:hover{
     background-color:#00b3bf ;
@@ -171,3 +175,44 @@ h2{
     top:250px;
     left:50%;
 }
+
+
+/* css pour .questionnaire */
+.questionnaire form:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
+.questionnaire form:nth-child(2) > *:not(div,input){
+    padding: 10px;
+}
+.questionnaire form:nth-child(2) label{
+    width: 100%;
+}
+.questionnaire form:nth-child(2) input{
+    text-align: center;
+}
+.questionnaire form:nth-child(2) label input{
+    text-align: left;
+    width: 60%;
+}
+
+section.questionnaire form{
+    margin:0px 5px;
+    padding: 20px 5px;
+    border-bottom: 1px solid black ;
+}
+.questionnaire form:nth-child(2) > div{
+    max-width: 650px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: start;
+}
+.questionnaire form:nth-child(2) > div > input{
+    margin:5px 5px;
+    padding: 5px;
+}
+
