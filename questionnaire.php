@@ -75,11 +75,12 @@ if (isset($_POST)){
             <input type="text" name="the_kestion" id='kestion' value="<?php echo htmlspecialchars($_SESSION['the_kestion']); ?>">
         </label>
         <label for="kestion-select">Voici ces réponses associées que vous pouvez modifiées: </label>
-            <div>
-                <?php foreach ($_SESSION['reponses_a_la_question']  as $reponse){ ?>
-                    <input type='text' name="<?php echo htmlspecialchars($reponse['id']); ?>" value="<?php echo htmlspecialchars($reponse['reponse']); ?>">
-                <?php } ?>
-            </div>
+        <div>
+            <?php foreach ($_SESSION['reponses_a_la_question']  as $reponse){ ?>
+                <input type='text' name="<?php echo htmlspecialchars($reponse['id']); ?>" value="<?php echo htmlspecialchars($reponse['reponse']); ?>">
+            <?php } ?>
+        </div>
+        <input type='file' >
         <input type="submit" value="Envoyer">
     </form>
 </section>
