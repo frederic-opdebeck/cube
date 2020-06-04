@@ -204,11 +204,28 @@ function writequestion(q){
                 let r = document.createElement("button");
                 let myClass = document.getElementById('questionReponses').classList;
                 r.setAttribute('id','R' + nbr)
-                r.setAttribute('class', 'buttonR')
+                r.setAttribute('class', 'buttonR');
+                if(q==='q0') {
+                    window.onload = function(){
+                        let rechercheInput = document.querySelector("input[placeholder='Rechercher un lieu, une adresse']");
+                        console.log(rechercheInput)
+                        if(rechercheInput.value === '') {
+                            r.style.pointerEvents = 'none';
+                        }
+                        rechercheInput.addEventListener('change', () => {
+                            if(rechercheInput.value!=='') {
+                                r.style.pointerEvents = 'auto';
+                                r.style.cursor = 'pointer';
+                            }
+                            else {
+                                r.style.pointerEvents = 'none';
+                            }
+                        });
+                    };
+                }
                 r.textContent = questions[q].reponses[key];
                 document.getElementById('questionReponses').classList.replace(myClass, q);
                 document.getElementById('questionReponses').appendChild(r);
-                console.log(questions[q].class);
                 r.addEventListener("click", function(){
                     if(q!=='q0') {   
                     recap.push({ 'laQuestion' : questions[q].question , 'laReponse' : questions[q].reponses[r.id]});
