@@ -9,6 +9,7 @@ require_once('user/userConnect.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="./css/style.css">
@@ -26,7 +27,9 @@ echo '
     <nav>
 ';
     if(!isset($_SESSION['login']) && !isset($_GET['register'])){
-            echo "<div class='register'><a href='./index.php?register'>S'inscrire</a></div>";
+            echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+            Register
+          </button>';
             echo '<div id="userConnect">';
 
             echo '
@@ -55,51 +58,7 @@ echo '
             echo '<label>Bonjour '.$_SESSION['login'].'</label>';
         }
         
-        if(!isset($_SESSION['login'])&& isset($_GET['register'])){
-            echo '
-            <div id="register">
-                <form action="index.php" method="POST">
-                    <div>
-                        <label name="registerLogin">Identifiant <span class="erreur">*</span>
-                        <input type="text" id="registerLogin" name="registerLogin" required></label>
-                        <label name="registerPassword">Mot de passe <span class="erreur">*</span>
-                        <input type="password" id="registerPassword" name="registerPassword" required></label>
-                        <label name="registerVerifPassword">Veuillez resaisir votre mot de pass <span class="erreur">*</span>
-                        <input type="password" id="registerVerifPassword" name="registerVerifPassword" required></label>
-                        <label name="registerEmail">Email <span class="erreur">*</span>
-                        <input type="email" id="registerEmail" name="registerEmail" required></label>
-                        <label name="registerNom">Nom <span class="erreur">*</span>
-                        <input type="text" id="registerNom" name="registerNom" required></label>
-                        <label name="registerPrenom">Prénom <span class="erreur">*</span>
-                        <input type="text" id="registerPrenom" name="registerPrenom" required></label>
-                    </div>
-                    <div>
-                        <label name="registercomplement1">Complement 1
-                        <input type="text" id="registercomplement1" name="registercomplement1"> </label>
-                        <label name="registercomplement2">Complement 2
-                        <input type="text" id="registercomplement2" name="registercomplement2"> </label>
-                        <label name="registerNumero">Numero 
-                        <input type="text" id="registerNumero" name="registerNumero"></label>
-                        <label name="registerVoie">Nom de la voie <span class="erreur">*</span>
-                        <input type="text" id="registerVoie" name="registerVoie" required> </label>
-                        <label name="registerVille">Ville <span class="erreur">*</span>
-                        <input type="text" id="registerVille" name="registerVille" required> </label>
-                        <label name="registerCp">Code postale  <span class="erreur">*</span>
-                        <input type="text" id="registerCp" name="registerCp" required></label>
-                    </div>
-                    <div>
-                        <p class="erreur"><span class="erreur">*</span> Champs obligatoires</p>
-                        <input type="submit" id="submit2" name="submit2">
-                    </div>
-                </form>
-            </div>
-            ';
-            echo '
-            <div><a href="index.php">Retourner sur la page d\'acceuil</a></div>';
-
-            }elseif(isset($_SESSION['login'])&& isset($_GET['register'])) {
-                    header('Location:index.php');
-            }
+        
     if(isset($_POST['disconnect'])) {
             session_destroy();
             header('Location: index.php');
