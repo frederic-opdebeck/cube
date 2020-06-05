@@ -40,7 +40,7 @@ echo '
             </div>
             ';
             if(!isset($_SESSION['login'])){
-                echo "<p>Veuillez vous connecter pour sauvegarder vos informations</p>";}
+                echo "<p style='color:red;margin-right:35px;'>Attention, vous devez être connecté pour enregistrer vos questionnaires</p>";}
             
             if(isset($_SESSION['msgAboutConnexion'])){
                 echo '<label class="erreur">'.$_SESSION['msgAboutConnexion'].'</label>';
