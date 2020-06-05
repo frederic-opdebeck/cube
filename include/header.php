@@ -25,7 +25,7 @@ echo '
 <header>
     <nav>
 ';
-        if(!isset($_SESSION['login']) && !isset($_GET['register'])){
+    if(!isset($_SESSION['login']) && !isset($_GET['register'])){
             echo "<div class='register'><a href='./index.php?register'>S'inscrire</a></div>";
             echo '<div id="userConnect">';
 
@@ -40,11 +40,12 @@ echo '
             </div>
             ';
             if(!isset($_SESSION['login'])){
-                echo "<p style='color:red;margin-right:35px;'>Attention, vous devez être connecté pour enregistrer vos questionnaires</p>";}
+                echo "<p style='color:red;margin-right:35px;'>Attention, vous devez être connecté pour enregistrer vos questionnaires</p>";
+            }
             
             if(isset($_SESSION['msgAboutConnexion'])){
                 echo '<label class="erreur">'.$_SESSION['msgAboutConnexion'].'</label>';
-            };
+            }
         }
         elseif(isset($_SESSION['login'])) {
             echo '
@@ -95,14 +96,14 @@ echo '
             ';
             echo '
             <div><a href="index.php">Retourner sur la page d\'acceuil</a></div>';
-        }
-        elseif(isset($_SESSION['login'])&& isset($_GET['register'])) {
-            header('Location:index.php');
-        }
-        if(isset($_POST['disconnect'])) {
+
+            }elseif(isset($_SESSION['login'])&& isset($_GET['register'])) {
+                    header('Location:index.php');
+            }
+    if(isset($_POST['disconnect'])) {
             session_destroy();
             header('Location: index.php');
-        }
+    }
 echo '
     </nav>
 </header>';
