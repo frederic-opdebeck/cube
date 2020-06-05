@@ -25,7 +25,7 @@ echo '
 <header>
     <nav>
 ';
-        if(!isset($_SESSION['login']) && !isset($_GET['register'])){
+    if(!isset($_SESSION['login']) && !isset($_GET['register'])){
             echo "<div class='register'><a href='./index.php?register'>S'inscrire</a></div>";
             echo '<div id="userConnect">';
 
@@ -40,11 +40,12 @@ echo '
             </div>
             ';
             if(!isset($_SESSION['login'])){
-                echo "<p style='color:red;margin-right:35px;'>Attention, vous devez être connecté pour enregistrer vos questionnaires</p>";}
+                echo "<p style='color:red;margin-right:35px;'>Attention, vous devez être connecté pour enregistrer vos questionnaires</p>";
+            }
             
             if(isset($_SESSION['msgAboutConnexion'])){
                 echo '<label class="erreur">'.$_SESSION['msgAboutConnexion'].'</label>';
-            };
+            }
         }
         elseif(isset($_SESSION['login'])) {
             echo '
@@ -59,18 +60,18 @@ echo '
             <div id="register">
                 <form action="index.php" method="POST">
                     <div>
-                        <label name="registerLogin">Identifiant
-                        <input type="text" id="registerLogin" name="registerLogin"></label>
-                        <label name="registerPassword">Mot de passe
-                        <input type="password" id="registerPassword" name="registerPassword"></label>
-                        <label name="registerVerifPassword">Veuillez resaisir votre mot de pass
-                        <input type="password" id="registerVerifPassword" name="registerVerifPassword"></label>
-                        <label name="registerEmail">Email
-                        <input type="email" id="registerEmail" name="registerEmail"></label>
-                        <label name="registerNom">Nom
-                        <input type="text" id="registerNom" name="registerNom"></label>
-                        <label name="registerPrenom">Prénom
-                        <input type="text" id="registerPrenom" name="registerPrenom"></label>
+                        <label name="registerLogin">Identifiant <span class="erreur">*</span>
+                        <input type="text" id="registerLogin" name="registerLogin" required></label>
+                        <label name="registerPassword">Mot de passe <span class="erreur">*</span>
+                        <input type="password" id="registerPassword" name="registerPassword" required></label>
+                        <label name="registerVerifPassword">Veuillez resaisir votre mot de pass <span class="erreur">*</span>
+                        <input type="password" id="registerVerifPassword" name="registerVerifPassword" required></label>
+                        <label name="registerEmail">Email <span class="erreur">*</span>
+                        <input type="email" id="registerEmail" name="registerEmail" required></label>
+                        <label name="registerNom">Nom <span class="erreur">*</span>
+                        <input type="text" id="registerNom" name="registerNom" required></label>
+                        <label name="registerPrenom">Prénom <span class="erreur">*</span>
+                        <input type="text" id="registerPrenom" name="registerPrenom" required></label>
                     </div>
                     <div>
                         <label name="registercomplement1">Complement 1
@@ -79,14 +80,15 @@ echo '
                         <input type="text" id="registercomplement2" name="registercomplement2"> </label>
                         <label name="registerNumero">Numero 
                         <input type="text" id="registerNumero" name="registerNumero"></label>
-                        <label name="registerVoie">Nom de la voie
-                        <input type="text" id="registerVoie" name="registerVoie"> </label>
-                        <label name="registerVille">Ville
-                        <input type="text" id="registerVille" name="registerVille"> </label>
-                        <label name="registerCp">Code postale 
-                        <input type="text" id="registerCp" name="registerCp"></label>
+                        <label name="registerVoie">Nom de la voie <span class="erreur">*</span>
+                        <input type="text" id="registerVoie" name="registerVoie" required> </label>
+                        <label name="registerVille">Ville <span class="erreur">*</span>
+                        <input type="text" id="registerVille" name="registerVille" required> </label>
+                        <label name="registerCp">Code postale  <span class="erreur">*</span>
+                        <input type="text" id="registerCp" name="registerCp" required></label>
                     </div>
                     <div>
+                        <p class="erreur"><span class="erreur">*</span> Champs obligatoires</p>
                         <input type="submit" id="submit2" name="submit2">
                     </div>
                 </form>
@@ -94,14 +96,14 @@ echo '
             ';
             echo '
             <div><a href="index.php">Retourner sur la page d\'acceuil</a></div>';
-        }
-        elseif(isset($_SESSION['login'])&& isset($_GET['register'])) {
-            header('Location:index.php');
-        }
-        if(isset($_POST['disconnect'])) {
+
+            }elseif(isset($_SESSION['login'])&& isset($_GET['register'])) {
+                    header('Location:index.php');
+            }
+    if(isset($_POST['disconnect'])) {
             session_destroy();
             header('Location: index.php');
-        }
+    }
 echo '
     </nav>
 </header>';

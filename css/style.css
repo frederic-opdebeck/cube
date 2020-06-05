@@ -21,6 +21,13 @@ label{
 #register form label{
     align-self: start;
 }
+#userConnect form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+}
 header{
     max-width: 100%;
     text-align: right;
