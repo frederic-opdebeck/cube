@@ -54,7 +54,11 @@ const questions = {
         'question': ajaxQuestion('q0')[0].question, // Do you leave
         'reponses': { 'R1': arrayJson[0].reponse[0]},
 
+<<<<<<< HEAD
         'img' : [arrayJson[0].nom[0]],
+=======
+        'img' : ['q0_0.jpg'],
+>>>>>>> ff2b3dc0ed2655837a4e7cd061442fdfa09608f3
         'type': 'radio',
         'carte' : function() {Gp.Services.getConfig({
             apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
@@ -70,9 +74,15 @@ const questions = {
         }
     },
     'q1':{
+<<<<<<< HEAD
             'question': ajaxQuestion('q1')[0].question, // Do you leave
             'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
             'img' : ['q1_0.jgp'],
+=======
+            'question': ajaxQuestion('q2'), // Do you leave
+            'reponses': { 'R1': 'Oui', 'R2': 'Non'},
+            'img' : ['q1_0.jpg'],
+>>>>>>> ff2b3dc0ed2655837a4e7cd061442fdfa09608f3
             'type': 'radio',
             'suite':function (rep){
                 if (rep.includes('R1')){
@@ -92,16 +102,28 @@ const questions = {
             }
         },
     'q3':{
+<<<<<<< HEAD
             'question': ajaxQuestion('q3')[0].question, // Is this the property you're looking for ?
             'reponses': { 'R1': arrayJson[0].reponse[0]},
             'img' : [arrayJson[0].nom[0]],
+=======
+            'question': ajaxQuestion('q4'), // Is this the property you're looking for ?
+            'reponses': null,
+            'img' : ['q3_0.jpg'],
+>>>>>>> ff2b3dc0ed2655837a4e7cd061442fdfa09608f3
             'type': null,
             'suite': null
         },
     'q4':{
+<<<<<<< HEAD
             'question': ajaxQuestion('q4')[0].question, // 'Do you want a Kitchen or Bathroom?',
             'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1], 'R3': arrayJson[0].reponse[2]},
             'img' : [arrayJson[0].nom[0]],
+=======
+            'question': ajaxQuestion('q5'), // 'Do you want a Kitchen or Bathroom?',
+            'reponses': { 'R1': 'Un cuisine et une salle de bain', 'R2': 'Seulement une salle de bain', 'R3': 'Aucune'},
+            'img' : ['q4_0.jpg'],
+>>>>>>> ff2b3dc0ed2655837a4e7cd061442fdfa09608f3
             'type': 'radio',
             'suite':function (rep){
                     return writequestion('q5');
@@ -124,27 +146,45 @@ const questions = {
     // PENSER A DEMANDER SI IL Y A PLUSIEURS STRUCTURE SUR LE TERRAIN 
 
     'q6':{
+<<<<<<< HEAD
             'question': ajaxQuestion('q6')[0].question, // Do you have any Construction in your Backyard? (Image 6)
             'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1], 'R3' : arrayJson[0].reponse[2], 'R4' : arrayJson[0].reponse[3]},
             'img' : [arrayJson[0].nom[0]],
+=======
+            'question': ajaxQuestion('q7'), // Do you have any Construction in your Backyard? (Image 6)
+            'reponses': { 'R1': 'Garage', 'R2': 'Espace de vie avec plomberie', 'R3' : 'Espace de vie sans plomberie', 'R4' : 'Autre'},
+            'img' : ['q6_0.jpg'],
+>>>>>>> ff2b3dc0ed2655837a4e7cd061442fdfa09608f3
             'type': 'radio',
             'suite':function (rep){
                     return writequestion('q7');
                 }
     },
     'q7':{
+<<<<<<< HEAD
         'question': ajaxQuestion('q7')[0].question, // Would you like to remove this structure? (Image 7)
         'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
         'img' : [arrayJson[0].nom[0]],
+=======
+        'question': ajaxQuestion('q8'), // Would you like to remove this structure? (Image 7)
+        'reponses': { 'R1': 'Oui', 'R2': 'Non'},
+        'img' : ['q7_0.jpg'],
+>>>>>>> ff2b3dc0ed2655837a4e7cd061442fdfa09608f3
         'type': 'radio',
         'suite':function (rep){
                 return writequestion('q8');   
         }
     },
     'q8':{
+<<<<<<< HEAD
         'question': ajaxQuestion('q8')[0].question, // Which look do you like most? (Image 11-12-13)
         'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1], 'R3': arrayJson[0].reponse[2]},
         'img' : [arrayJson[0].nom[0],arrayJson[0].nom[1],arrayJson[0].nom[2]],
+=======
+        'question': ajaxQuestion('q9'), // Which look do you like most? (Image 11-12-13)
+        'reponses': { 'R1': '', 'R2': '', 'R3' :''},
+        'img' : null,
+>>>>>>> ff2b3dc0ed2655837a4e7cd061442fdfa09608f3
         'type': 'radio',
         'suite':function (rep){
             printResults(recap);
@@ -215,10 +255,11 @@ function writequestion(q){
         }
     let quest = document.getElementById("question");
     quest.textContent = questions[q].question;
+    document.getElementById('images').src = "./img/" + questions[q].img;
     let nbr = 1
     if(document.querySelectorAll('.buttonR')) {
         document.querySelectorAll(".buttonR").forEach(e => e.parentNode.removeChild(e));
-        }  
+        } 
     for (const key in questions[q].reponses) {
         if (questions[q].reponses.hasOwnProperty(key)) {
                 let r = document.createElement("button");

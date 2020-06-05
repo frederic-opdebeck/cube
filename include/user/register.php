@@ -13,7 +13,7 @@ if(isset($_POST['submit2'])) {
             $req->execute();
         }
     } else{
-        echo 'Vous devez saisir deux fois le même mot de passse ';
+        $_SESSION['msgAboutConnexion'] = 'Vous devez saisir deux fois le même mot de passse ';
     }
 }
 ?>
