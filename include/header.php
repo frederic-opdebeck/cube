@@ -60,17 +60,17 @@ echo '
                 <form action="index.php" method="POST">
                     <div>
                         <label name="registerLogin">Identifiant
-                        <input type="text" id="registerLogin" name="registerLogin"></label>
+                        <input type="text" id="registerLogin" name="registerLogin" required></label>
                         <label name="registerPassword">Mot de passe
-                        <input type="password" id="registerPassword" name="registerPassword"></label>
+                        <input type="password" id="registerPassword" name="registerPassword" required></label>
                         <label name="registerVerifPassword">Veuillez resaisir votre mot de pass
-                        <input type="password" id="registerVerifPassword" name="registerVerifPassword"></label>
+                        <input type="password" id="registerVerifPassword" name="registerVerifPassword" required></label>
                         <label name="registerEmail">Email
-                        <input type="email" id="registerEmail" name="registerEmail"></label>
+                        <input type="email" id="registerEmail" name="registerEmail" required></label>
                         <label name="registerNom">Nom
-                        <input type="text" id="registerNom" name="registerNom"></label>
+                        <input type="text" id="registerNom" name="registerNom" required></label>
                         <label name="registerPrenom">Prénom
-                        <input type="text" id="registerPrenom" name="registerPrenom"></label>
+                        <input type="text" id="registerPrenom" name="registerPrenom" required></label>
                     </div>
                     <div>
                         <label name="registercomplement1">Complement 1
@@ -80,11 +80,11 @@ echo '
                         <label name="registerNumero">Numero 
                         <input type="text" id="registerNumero" name="registerNumero"></label>
                         <label name="registerVoie">Nom de la voie
-                        <input type="text" id="registerVoie" name="registerVoie"> </label>
+                        <input type="text" id="registerVoie" name="registerVoie" required> </label>
                         <label name="registerVille">Ville
-                        <input type="text" id="registerVille" name="registerVille"> </label>
+                        <input type="text" id="registerVille" name="registerVille" required> </label>
                         <label name="registerCp">Code postale 
-                        <input type="text" id="registerCp" name="registerCp"></label>
+                        <input type="text" id="registerCp" name="registerCp" required></label>
                     </div>
                     <div>
                         <input type="submit" id="submit2" name="submit2">
