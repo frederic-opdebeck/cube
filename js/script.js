@@ -71,7 +71,7 @@ const questions = {
     'q1':{
             'question': ajaxQuestion('q1')[0].question, // Do you leave
             'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
-            'img' : ['q1_0.jpg'],
+            'img' : [arrayJson[0].nom[0]],
             'type': 'radio',
             'suite':function (rep){
                 if (rep.includes('R1')){
@@ -157,11 +157,15 @@ const questions = {
         'img' : [arrayJson[0].nom[0]],
         'type': 'radio',
         'suite':function (rep){
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', './json.php');
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.send('json=' + JSON.stringify(recap));
-            return writequestion('q9bis');   
+            if (rep.includes('R1')){
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', './json.php');
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send('json=' + JSON.stringify(recap));
+                return writequestion('q9bis'); 
+            } else {
+                return writequestion('q9bis'); 
+            }  
         }
         // fonction qui enoive un mail de récap au client potentiel
     },
@@ -226,12 +230,9 @@ function writequestion(q){
                 r.setAttribute('id','R' + nbr)
                 r.setAttribute('class', 'buttonR');
                 if(q==='q0') {
+                    r.style.pointerEvents = 'none';
                     window.onload = function(){
                         let rechercheInput = document.querySelector("input[placeholder='Rechercher un lieu, une adresse']");
-                        console.log(rechercheInput)
-                        if(rechercheInput.value === '') {
-                            r.style.pointerEvents = 'none';
-                        }
                         rechercheInput.addEventListener('change', () => {
                             if(rechercheInput.value!=='') {
                                 r.style.pointerEvents = 'auto';
