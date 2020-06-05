@@ -14,9 +14,15 @@ $questions_select = $req->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST)){
 
+
     if(isset($_POST['kestion']) && isset($_POST['choix_kestion']) 
     && $_POST['choix_kestion'] === 'choix_kestion') {
         if(!empty($_POST['kestion'])) {
+
+            if ( $_POST['kestion'] === '-- Choisir la quesiton à modifier --'){?>
+                $
+                <?php header('Location:questionnaire.php');
+            }
 
             $bdd = new Bdd;
             $req = $bdd->bdd->prepare('SELECT question FROM questions WHERE id=:id');
@@ -25,6 +31,11 @@ if (isset($_POST)){
 
             $_SESSION['the_kestion']= $req->fetch(PDO::FETCH_ASSOC)['question'];
             $_SESSION['id_the_kestion'] = $_POST['kestion'];
+
+            if(  $_POST['qAvantApres'] != 'non'){
+                $_SESSION['qAvantApres']= $_POST['qAvantApres'];
+                header('Location:ajoutQuestion.php');
+            }
 
             $bdd = new Bdd;
             $req = $bdd->bdd->prepare('SELECT id,reponse FROM reponses WHERE id_questions=:id');
@@ -87,13 +98,20 @@ if (isset($_POST)){
     <form action="questionnaire.php" method='post'>
         <input id="choix_kestion" name="choix_kestion" type="hidden" value="choix_kestion">
         <select name="kestion" id="kestion-select">
-            <option> -- Choisir la quesiton à modifier -- </option>
+            <option>-- Choisir la quesiton à modifier --</option>
             <?php foreach ($questions_select  as $question){ ?>
                 <option value="<?php echo $question['id']; ?>" >
                     <?php echo "Question n° ".$question['id']." : ".$question['question']; ?>
                 </option>
             <?php } ?>
         </select>
+
+        <label >Voulez-vous ajouter une question ?
+        <select name="qAvantApres" id="qAvantApres-select">
+            <option value="non">non</option>
+            <option value="avant">avant</option>
+            <option value="apres">apres</option>
+        </select></label>
         
         <input type="submit" value="Valider">
     </form>
