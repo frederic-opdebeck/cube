@@ -8,9 +8,9 @@ class Bdd
     */
     public function __construct()
     {
-        $strBddServeur = "localhost";
+        $strBddServeur = "localhost:3308";
         $strBddLogin = "root";
-        $strBddPassword = "root";
+        $strBddPassword = "";
         $strBddBase = "cube";
          
         //Création d'un lien à la base de données de type PDO

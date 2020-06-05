@@ -11,6 +11,7 @@ if(isset($_POST['submit2'])) {
             $req->bindValue(':nom', $_POST['registerNom']);
             $req->bindValue(':prenom', $_POST['registerPrenom']);
             $req->execute();
+            echo "<script>alert(\"Inscription validée\")</script>";
         }
     } else{
         $_SESSION['msgAboutConnexion'] = 'Vous devez saisir deux fois le même mot de passse ';
