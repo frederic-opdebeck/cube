@@ -71,7 +71,7 @@ const questions = {
     'q1':{
             'question': ajaxQuestion('q1')[0].question, // Do you leave
             'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
-            'img' : ['q1_0.jgp'],
+            'img' : ['q1_0.jpg'],
             'type': 'radio',
             'suite':function (rep){
                 if (rep.includes('R1')){

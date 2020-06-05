@@ -25,7 +25,6 @@ echo '
 <header>
     <nav>
 ';
-
         if(!isset($_SESSION['login']) && !isset($_GET['register'])){
             echo "<div class='register'><a href='./index.php?register'>S'inscrire</a></div>";
             echo '<div id="userConnect">';
@@ -40,6 +39,9 @@ echo '
                 </form>
             </div>
             ';
+            if(!isset($_SESSION['login'])){
+                echo "<p>Veuillez vous connecter pour sauvegarder vos informations</p>";}
+            
             if(isset($_SESSION['msgAboutConnexion'])){
                 echo '<label class="erreur">'.$_SESSION['msgAboutConnexion'].'</label>';
             };
@@ -51,7 +53,7 @@ echo '
             </form>';
             echo '<label>Bonjour '.$_SESSION['login'].'</label>';
         }
-
+        
         if(!isset($_SESSION['login'])&& isset($_GET['register'])){
             echo '
             <div id="register">
