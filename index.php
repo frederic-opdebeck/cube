@@ -1,4 +1,9 @@
-<?php require('include/header.php'); ?>
+<?php require('include/header.php'); 
+if(isset($_GET['profil'])&&isset($_SESSION['login'])) {
+    include('include/user/profil.php');
+}
+else {
+    echo '
     <section class="contenu">
         <div id="container">
             <div id="questionReponses" class="classquichange">
@@ -8,12 +13,15 @@
                 <div id="mapid"></div>
             </div>
         </div>
-        <section class="recap">
+        <div class="recap">
             <table class="recapListe">
-
+    
             </table>
-        </section>
+        </div>
     </section>
+    ';  
+}
+?>
 </body>
 <script type="text/javascript" src="./js/script.js"></script>
 </html>
