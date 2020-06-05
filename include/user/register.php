@@ -18,11 +18,11 @@ if(isset($_POST['submit2'])) {
             $req->bindValue(':email', $_POST['registerEmail']);
             $req->bindValue(':nom', $_POST['registerNom']);
             $req->bindValue(':prenom', $_POST['registerPrenom']);
-            $req->bindValue(':complement1', $_POST['registercomplement1']);
-            $req->bindValue(':complement2', $_POST['registercomplement2']);
-            $req->bindValue(':numero', $_POST['registernumero']);
-            $req->bindValue(':voie', $_POST['registervoie']);
-            $req->bindValue(':ville', $_POST['registerville']);
+            $req->bindValue(':complement1', $_POST['registerComplement1']);
+            $req->bindValue(':complement2', $_POST['registerComplement2']);
+            $req->bindValue(':numero', $_POST['registerNumero']);
+            $req->bindValue(':voie', $_POST['registerVoie']);
+            $req->bindValue(':ville', $_POST['registerVille']);
             $req->bindValue(':cp', $_POST['registerCp']);
             $req->execute();
             echo "<script>alert(\"Inscription validée\")</script>";
