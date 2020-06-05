@@ -345,3 +345,23 @@ img.img_bg{
     border: 1px solid black;
     object-fit: contain;
 }
+.global {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+}
+.quest {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    column-gap: 100px;
+}
+.resumeQuestionnaire {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    margin-top:50px;
+}
+.titreQ {
+    font-weight:bold;
+    text-align:center;
+}
