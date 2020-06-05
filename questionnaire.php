@@ -1,11 +1,16 @@
 <?php 
-require('include/header.php'); 
+require('include/header.php');
+if (!(isset($_SESSION['login']) && ($_SESSION['login'] === 'hasanenadminalaa'))){
+    header('Location:index.php' );
+}
 
 
-        $bdd = new Bdd;
-        $req = $bdd->bdd->prepare('SELECT id,question,type FROM questions ORDER BY ID');
-        $req->execute();
-        $questions_select = $req->fetchAll(PDO::FETCH_ASSOC);
+
+$bdd = new Bdd;
+$req = $bdd->bdd->prepare('SELECT id,question,type FROM questions ORDER BY ID');
+$req->execute();
+$questions_select = $req->fetchAll(PDO::FETCH_ASSOC);
+
 
 if (isset($_POST)){
 
@@ -58,9 +63,9 @@ if (isset($_POST)){
                 $req->bindValue(':id', $_SESSION['reponses_a_la_question'][$i]['id']);
                 $req->execute();
             }
-            // $fichier = $_FILES['userFile']['name'];
+            
             require('include/downloadFile_from_inputFile.php');
-
+            // $fichier = $_FILES['userFile']['name'];
             // ce fichier ressort ces deux constantes et un msg que l'on peut appeler :
             // echo $succesUpload;
             // echo $afficheImg;
@@ -73,7 +78,7 @@ if (isset($_POST)){
                 $req->bindValue(':id', $_SESSION['id_the_kestion']);
                 $req->execute();
             }
-            // header('Location:questionnaire.php' );  
+            header('Location:questionnaire.php' );  
     }
 }
 ?>
@@ -92,7 +97,7 @@ if (isset($_POST)){
         
         <input type="submit" value="Valider">
     </form>
-
+<?php if (isset($_SESSION['the_kestion'])){ ?>
     <form action="questionnaire.php" method='post' enctype="multipart/form-data">
         <input id="modif_text" name="modif_text" type="hidden" value="modif_text">
         <label for="kestion">Voici la question que vous avez choisi de modifier : 
@@ -120,6 +125,7 @@ if (isset($_POST)){
        
 
     </form>
+<?php }?>
 
 
 </section>
