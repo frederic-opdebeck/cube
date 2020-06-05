@@ -28,30 +28,33 @@ function printResults(r){
             
     }
 }
+let arrayJson;
 function ajaxQuestion(id){
     let idQ = id.split('q');
+    let finalId = parseInt(idQ[1]) +1;
     let dataQ;
     $.ajax({
         url: "ajaxQuestionReponse.php",
         type: "POST",
         async: false, // Mode synchrone
         data: ({
-            id_question: idQ[1]
+            id_question: finalId
         }),
         complete: function(data){
             dataQ = data;
             return dataQ;
         }
     });
-    return dataQ.responseText;
+    arrayJson = JSON.parse(dataQ.responseText);
+    return arrayJson;
 }
 let recap = [];
 const questions = {
     'q0':{
-        'question': ajaxQuestion('q1'), // Do you leave
-        'reponses': { 'R1': 'Valider mon adresse'},
+        'question': ajaxQuestion('q0')[0].question, // Do you leave
+        'reponses': { 'R1': arrayJson[0].reponse[0]},
 
-        'img' : ['q0_0.jgp'],
+        'img' : [arrayJson[0].nom[0]],
         'type': 'radio',
         'carte' : function() {Gp.Services.getConfig({
             apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
@@ -67,8 +70,8 @@ const questions = {
         }
     },
     'q1':{
-            'question': ajaxQuestion('q2'), // Do you leave
-            'reponses': { 'R1': 'Oui', 'R2': 'Non'},
+            'question': ajaxQuestion('q1')[0].question, // Do you leave
+            'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
             'img' : ['q1_0.jgp'],
             'type': 'radio',
             'suite':function (rep){
@@ -80,33 +83,33 @@ const questions = {
             }
         },
     'q2':{
-            'question': ajaxQuestion('q3'), // What will you be using your Cube for ?
-            'reponses': { 'R1': "Chambre d'hôte",'R2': 'Commerce','R3': 'Demenagement','R4': 'Bureau','R5': 'Piscine','R6': 'Autre' },
-            'img': ['q2_0.jpg'],
+            'question': ajaxQuestion('q2')[0].question, // What will you be using your Cube for ?
+            'reponses': { 'R1': arrayJson[0].reponse[0],'R2': arrayJson[0].reponse[1],'R3': arrayJson[0].reponse[2],'R4': arrayJson[0].reponse[3],'R5': arrayJson[0].reponse[4],'R6': arrayJson[0].reponse[5] },
+            'img': [arrayJson[0].nom[0]],
             'type': 'radio',
             'suite': function (rep){
                     return writequestion('q4');
             }
         },
     'q3':{
-            'question': ajaxQuestion('q4'), // Is this the property you're looking for ?
-            'reponses': null,
-            'img' : ['q3_0.jgp'],
+            'question': ajaxQuestion('q3')[0].question, // Is this the property you're looking for ?
+            'reponses': { 'R1': arrayJson[0].reponse[0]},
+            'img' : [arrayJson[0].nom[0]],
             'type': null,
             'suite': null
         },
     'q4':{
-            'question': ajaxQuestion('q5'), // 'Do you want a Kitchen or Bathroom?',
-            'reponses': { 'R1': 'Un cuisine et une salle de bain', 'R2': 'Seulement une salle de bain', 'R3': 'Aucune'},
-            'img' : ['q4_0.jgp'],
+            'question': ajaxQuestion('q4')[0].question, // 'Do you want a Kitchen or Bathroom?',
+            'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1], 'R3': arrayJson[0].reponse[2]},
+            'img' : [arrayJson[0].nom[0]],
             'type': 'radio',
             'suite':function (rep){
                     return writequestion('q5');
             }
         },
     'q5':{
-            'question': ajaxQuestion('q6'), 
-            'reponses': { 'R1' : 'Oui', 'R2' : 'Non'},
+            'question': ajaxQuestion('q5')[0].question, 
+            'reponses': { 'R1' : arrayJson[0].reponse[0], 'R2' : arrayJson[0].reponse[1]},
             'img' : null,
             'type': 'number',
             'suite':function (rep){
@@ -121,27 +124,27 @@ const questions = {
     // PENSER A DEMANDER SI IL Y A PLUSIEURS STRUCTURE SUR LE TERRAIN 
 
     'q6':{
-            'question': ajaxQuestion('q7'), // Do you have any Construction in your Backyard? (Image 6)
-            'reponses': { 'R1': 'Garage', 'R2': 'Espace de vie avec plomberie', 'R3' : 'Espace de vie sans plomberie', 'R4' : 'Autre'},
-            'img' : ['q6_0'],
+            'question': ajaxQuestion('q6')[0].question, // Do you have any Construction in your Backyard? (Image 6)
+            'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1], 'R3' : arrayJson[0].reponse[2], 'R4' : arrayJson[0].reponse[3]},
+            'img' : [arrayJson[0].nom[0]],
             'type': 'radio',
             'suite':function (rep){
                     return writequestion('q7');
                 }
     },
     'q7':{
-        'question': ajaxQuestion('q8'), // Would you like to remove this structure? (Image 7)
-        'reponses': { 'R1': 'Oui', 'R2': 'Non'},
-        'img' : ['q7_0'],
+        'question': ajaxQuestion('q7')[0].question, // Would you like to remove this structure? (Image 7)
+        'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
+        'img' : [arrayJson[0].nom[0]],
         'type': 'radio',
         'suite':function (rep){
                 return writequestion('q8');   
         }
     },
     'q8':{
-        'question': ajaxQuestion('q9'), // Which look do you like most? (Image 11-12-13)
-        'reponses': { 'R1': 'img_11 en bg', 'R2': 'img_12 en bg', 'R3' :'img_13 en bg'},
-        'img' : ['q8_0.jpg','q8_1.jpg','q8_2.jpg'],
+        'question': ajaxQuestion('q8')[0].question, // Which look do you like most? (Image 11-12-13)
+        'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1], 'R3': arrayJson[0].reponse[2]},
+        'img' : [arrayJson[0].nom[0],arrayJson[0].nom[1],arrayJson[0].nom[2]],
         'type': 'radio',
         'suite':function (rep){
             printResults(recap);
@@ -150,9 +153,9 @@ const questions = {
         // fonction pour Récapituler de toutes les q et r associées + envoie d"un mail et proposer envoie de mail telechargement de la config'
     },
     'q9':{
-        'question': ajaxQuestion('q10'), // Which look do you like most? (Image 11-12-13)
-        'reponses': { 'R1': 'oui', 'R2': 'non'},
-        'img' : ['q9_0.jpg'],
+        'question': ajaxQuestion('q9')[0].question, // Which look do you like most? (Image 11-12-13)
+        'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
+        'img' : [arrayJson[0].nom[0]],
         'type': 'radio',
         'suite':function (rep){
             var xhr = new XMLHttpRequest();
@@ -164,18 +167,18 @@ const questions = {
         // fonction qui enoive un mail de récap au client potentiel
     },
     'q9bis':{
-        'question': ajaxQuestion('q11'), // 
-        'reponses': { 'R1': 'oui', 'R2': 'non'},
-        'img' : ['q9bis_0.jpg'],
+        'question': ajaxQuestion('q10')[0].question, // 
+        'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
+        'img' : [arrayJson[0].nom[0]],
         'type': 'radio',
         'suite':function (rep){
             return writequestion('q10');   
         }
     },
     'q10':{
-        'question': ajaxQuestion('q12'), // Which look do you like most? (Image 11-12-13)
-        'reponses': { 'R1': 'oui', 'R2': 'non'},
-        'img' : ['q10_0.jpg','q10_1.jpg'],
+        'question': ajaxQuestion('q11')[0].question, // Which look do you like most? (Image 11-12-13)
+        'reponses': { 'R1': arrayJson[0].reponse[0], 'R2': arrayJson[0].reponse[1]},
+        'img' : [arrayJson[0].nom[0],arrayJson[0].nom[1]],
         'type': 'button',
         'suite':function (rep){
             if (rep.includes('R1')){
@@ -186,7 +189,7 @@ const questions = {
         }
     },
     'q11':{
-        'question': ajaxQuestion('q13'), // Which look do you like most? (Image 11-12-13)
+        'question': ajaxQuestion('q12')[0].question, // Which look do you like most? (Image 11-12-13)
         'reponses': null,
         'img' : null,
         'type': 'button',
@@ -249,6 +252,9 @@ function writequestion(q){
                     }
                     else {
                         recap.push({ 'laQuestion' : questions[q].question , 'adresse' : questions[q].adresse()});
+                    }
+                    if(q=='q9') {
+                        //connection si pas connecté
                     }
                     console.log(recap)
                     questions[q].suite(r.id)

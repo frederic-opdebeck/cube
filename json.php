@@ -27,4 +27,12 @@ if(isset($_POST['json'])) {
     fseek($fp, 0);
     fputs($fp, $_POST['json']);
 }
+if(isset($_POST['test_connect'])) {
+    if(isset($_POST['login'])) {
+        echo 'oui';
+    }
+    else {
+        echo 'non';
+    }
+}
 ?>
