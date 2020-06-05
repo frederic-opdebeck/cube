@@ -3,6 +3,24 @@ body:not(.erreur){
     background-color: #f1f1f1;
     font-size: 16px;
 }
+label{
+    display: block;
+}
+#register form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+#register form div:nth-last-child(1){
+    width: 100%;
+    text-align: center;
+}
+
+#register form label{
+    align-self: start;
+}
 header{
     max-width: 100%;
     text-align: right;
@@ -10,10 +28,10 @@ header{
 }
 header nav{
     display: flex;
-    flex-direction: row-reverse; 
     justify-content: flex-start;
     align-items: center;
     margin: 10px 20px;
+    flex-direction: column-reverse;
 }
 header  nav> div{
     min-width:80px;

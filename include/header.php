@@ -58,24 +58,42 @@ echo '
             echo '
             <div id="register">
                 <form action="index.php" method="POST">
-                    <label name="registerLogin">Identifiant</label>
-                    <input type="text" id="registerLogin" name="registerLogin">
-                    <label name="registerPassword">Mot de passe</label>
-                    <input type="password" id="registerPassword" name="registerPassword">
-                    <label name="registerVerifPassword">Veuillez vérifier votre mot de pass</label>
-                    <input type="password" id="registerVerifPassword" name="registerVerifPassword">
-                    <label name="registerEmail">Email</label>
-                    <input type="email" id="registerEmail" name="registerEmail">
-                    <label name="registerNom">Nom</label>
-                    <input type="text" id="registerNom" name="registerNom">
-                    <label name="registerPrenom">Prénom</label>
-                    <input type="text" id="registerPrenom" name="registerPrenom">
-                    <input type="submit" id="submit2" name="submit2">
+                    <div>
+                        <label name="registerLogin">Identifiant
+                        <input type="text" id="registerLogin" name="registerLogin"></label>
+                        <label name="registerPassword">Mot de passe
+                        <input type="password" id="registerPassword" name="registerPassword"></label>
+                        <label name="registerVerifPassword">Veuillez resaisir votre mot de pass
+                        <input type="password" id="registerVerifPassword" name="registerVerifPassword"></label>
+                        <label name="registerEmail">Email
+                        <input type="email" id="registerEmail" name="registerEmail"></label>
+                        <label name="registerNom">Nom
+                        <input type="text" id="registerNom" name="registerNom"></label>
+                        <label name="registerPrenom">Prénom
+                        <input type="text" id="registerPrenom" name="registerPrenom"></label>
+                    </div>
+                    <div>
+                        <label name="registercomplement1">Complement 1
+                        <input type="text" id="registercomplement1" name="registercomplement1"> </label>
+                        <label name="registercomplement2">Complement 2
+                        <input type="text" id="registercomplement2" name="registercomplement2"> </label>
+                        <label name="registerNumero">Numero 
+                        <input type="text" id="registerNumero" name="registerNumero"></label>
+                        <label name="registerVoie">Nom de la voie
+                        <input type="text" id="registerVoie" name="registerVoie"> </label>
+                        <label name="registerVille">Ville
+                        <input type="text" id="registerVille" name="registerVille"> </label>
+                        <label name="registerCp">Code postale 
+                        <input type="text" id="registerCp" name="registerCp"></label>
+                    </div>
+                    <div>
+                        <input type="submit" id="submit2" name="submit2">
+                    </div>
                 </form>
             </div>
             ';
             echo '
-            <a href="index.php">Retourner sur la page d\'acceuil</a>';
+            <div><a href="index.php">Retourner sur la page d\'acceuil</a></div>';
         }
         elseif(isset($_SESSION['login'])&& isset($_GET['register'])) {
             header('Location:index.php');
