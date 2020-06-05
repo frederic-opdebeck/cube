@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  jeu. 04 juin 2020 à 13:51
+-- Généré le :  ven. 05 juin 2020 à 10:02
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.3.8
 
@@ -13,6 +13,18 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `cube`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `guid`
+--
+
+CREATE TABLE `guid` (
+  `id` int(11) NOT NULL,
+  `guid` char(38) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -32,11 +44,11 @@ CREATE TABLE `img` (
 --
 
 INSERT INTO `img` (`id`, `nom`, `id_questions`, `description`) VALUES
-(1, 'q0_0.jgp', 1, NULL),
-(2, 'q1_0.jgp', 2, NULL),
+(1, 'q0_0.jpg', 1, NULL),
+(2, 'q1_0.jpg', 2, NULL),
 (3, 'q2_0.jpg', 3, NULL),
-(4, 'q3_0.jgp', 4, NULL),
-(5, 'q4_0.jgp', 5, NULL),
+(4, 'petite-entreprise.png', 4, NULL),
+(5, 'q4_0.jpg', 5, NULL),
 (6, NULL, 6, NULL),
 (7, 'q6_0.jpg', 7, NULL),
 (8, 'q7_0.jpg', 8, NULL),
@@ -129,7 +141,7 @@ INSERT INTO `reponses` (`id`, `reponse`, `id_questions`, `description`) VALUES
 (30, 'Oui', 12, NULL),
 (31, 'Non', 12, NULL),
 (32, '', 13, NULL),
-(33, 'Seulement une salle de bain', 5, NULL);
+(33, 'Aucune des deux', 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -143,21 +155,28 @@ CREATE TABLE `user` (
   `pass` varchar(255) NOT NULL,
   `email` varchar(150) NOT NULL,
   `nom` varchar(55) NOT NULL,
-  `prenom` varchar(55) NOT NULL,
-  `adresse` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `prenom` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `pass`, `email`, `nom`, `prenom`, `adresse`) VALUES
-(1, 'user', '$2y$10$d3xTYUGgwsjxEm/pmuLy8OipqPKZGPa8oMVRN2S8SE.X13/uelrUK', 'user@user.user', 'user', 'user', 0),
-(2, 'fred', '$2y$10$ByyNCt2sBeIE.nXAZ/ivn.3w7YLwd7a77zDITy6zHIOpLHom5bs7i', 'fred@fred.fred', 'fred', 'fred', 0);
+INSERT INTO `user` (`id`, `login`, `pass`, `email`, `nom`, `prenom`) VALUES
+(1, 'user', '$2y$10$d3xTYUGgwsjxEm/pmuLy8OipqPKZGPa8oMVRN2S8SE.X13/uelrUK', 'user@user.user', 'user', 'user'),
+(2, 'fred', '$2y$10$ByyNCt2sBeIE.nXAZ/ivn.3w7YLwd7a77zDITy6zHIOpLHom5bs7i', 'fred@fred.fred', 'fred', 'fred'),
+(3, 'hasanenadminalaa', '$2y$10$4wl3DSmRweVMjlMMf.JnN.QZWb4cfyS3316RFiDtCuSaM5arbl7S.', 'fpubpoub@gmail.com', 'hasanen', 'alaa');
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `guid`
+--
+ALTER TABLE `guid`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Index pour la table `img`
@@ -190,6 +209,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT pour la table `guid`
+--
+ALTER TABLE `guid`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `img`
 --
 ALTER TABLE `img`
@@ -211,11 +236,17 @@ ALTER TABLE `reponses`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `guid`
+--
+ALTER TABLE `guid`
+  ADD CONSTRAINT `guid_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `img`
