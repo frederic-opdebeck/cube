@@ -1,14 +1,14 @@
 <?php
 /* liste des fonctions :
-is_log()
+is_log() 		[ligne 30]
 
-print_lf($t)
-printr($t)
+print_lf($t) 	[ligne 30]
+printr($t)		[ligne 30]
 
-valid_date($sup,$inf='')
-change_mois($t,$type,$sep)
+valid_date($sup,$inf='')	[ligne 30]
+change_mois($t,$type,$sep)	[ligne 30]
 
-sup_car ($t) inv_date($d,$sep,$long=0)
+sup_car ($t) inv_date($d,$sep,$long=0)	[ligne 30]
 last_car($t)
 vire_espace($t)
 decoupe_chaine($string, $start, $length, $endStr = '...')
