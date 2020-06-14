@@ -10,7 +10,7 @@ require_once('user/userConnect.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/base.css">
+    <!-- <link rel="stylesheet" href="./css/base.css"> -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -18,7 +18,7 @@ require_once('user/userConnect.php');
     <script src="./js/GpServices.js"></script>
     <script src="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.js"></script>
     <link rel="stylesheet" href="./node_modules/geoportal-extensions-leaflet/dist/GpPluginLeaflet.css">
-    <title>Document</title>
+    <title>Cube</title>
 </head>
 <body>
 <?php 
@@ -27,23 +27,26 @@ echo '
     <nav>
 ';
     if(!isset($_SESSION['login']) && !isset($_GET['register'])){
-            echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-            Register
-          </button>';
-            echo '<div id="userConnect">';
+          
+            echo   "<div id='userConnect'>
+                        <form action='index.php' method='POST'>
+                            <label name='login'>Identifiant 
+                            <input type='text' id='login' name='login'></label>
 
-            echo '
-                <form action="index.php" method="POST">
-                    <label name="login">Identifiant 
-                    <input type="text" id="login" name="login"></label>
-                    <label name="password">Mot de passe 
-                    <input type="password" id="password" name="password"></label>
-                    <input type="submit" value="Se connecter" name="submit">
-                </form>
-            </div>
-            ';
+                            <label name='password'>Mot de passe 
+                            <input type='password' id='password' name='password'></label>
+
+                            <input type='submit' value='Se connecter' name='submit'>
+                        </form>
+                        <button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#exampleModal2'>
+                        S'inscrire
+                        </button>
+                    </div>";
+
             if(!isset($_SESSION['login'])){
-                echo "<p style='color:red;margin-right:35px;'>Attention, vous devez être connecté pour enregistrer vos questionnaires</p>";
+                echo "  <p style='color:red;margin-right:35px;'>
+                            Attention, vous devez être connecté pour enregistrer vos questionnaires
+                        </p>";
             }
             
             if(isset($_SESSION['msgAboutConnexion'])){
@@ -53,9 +56,13 @@ echo '
         elseif(isset($_SESSION['login'])) {
             echo '
             <form action="index.php" method="POST">
-            <input type="submit" name="disconnect" value="Se déconnecter">
-            </form>';
-            echo '<label>Bonjour '.$_SESSION['login'].'</label>';
+                <label>Bonjour '.$_SESSION['login'].'
+                <input type="submit" name="disconnect" value="Se déconnecter">';
+            if ($_SESSION['login'] === 'admin' ){
+                echo '<a href="/questionnaire/">Administrer le questionnaire</a>';
+            }                
+            echo '</label></form>';
+
         }
         
         

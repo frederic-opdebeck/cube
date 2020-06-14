@@ -58,7 +58,7 @@ else {
                                 <label name="registercomplement2">Complement 2
                                 <input type="text" id="registercomplement2" name="registercomplement2"> </label>
                                 <label name="registerNumero">Numero 
-                                <input type="text" id="registerNumero" name="registerNumero"></label>
+                                <input type="number" id="registerNumero" name="registerNumero"></label>
                                 <label name="registerVoie">Nom de la voie <span class="erreur">*</span>
                                 <input type="text" id="registerVoie" name="registerVoie" required> </label>
                                 <label name="registerVille">Ville <span class="erreur">*</span>

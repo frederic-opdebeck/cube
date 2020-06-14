@@ -1,8 +1,11 @@
 <?php 
-require('include/header.php');
-if (!(isset($_SESSION['login']) && ($_SESSION['login'] === 'hasanenadminalaa'))){
+
+if (( !isset($_SESSION['login']) 
+      && ($_SESSION['login'] !== 'hasanenadminalaa' || $_SESSION['login'] !== 'admin'))){
+          echo $_SESSION['login'];
     header('Location:index.php' );
 }
+require('include/header.php');
 
 
 
