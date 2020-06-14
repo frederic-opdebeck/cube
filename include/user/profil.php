@@ -27,15 +27,14 @@ if(isset($_GET['profil'])&&isset($_SESSION['login'])) {
             echo '<div class="resumeQuestionnaire">';
             echo '<h3 class="titreQ">Questionnaire '.($i+1).'</h3>';
             foreach($obj as $key =>$value) {
-                echo '<div class="quest">';
+                echo '
+                <div class="resumeQuestion">';
                 foreach($value as $question => $reponse) {
                     echo '
                         
-                            <div class="resumeQuestion">
+                           
                                 <p>'.$reponse.'</p>
-                            </div>
-                        
-                    
+                            
                     ';
 
                 }
