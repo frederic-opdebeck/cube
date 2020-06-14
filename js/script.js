@@ -77,7 +77,7 @@ const questions = {
                 if (rep.includes('R1')){
                     return writequestion('q2');
                 } else {
-                    document.location.href="index.php"; 
+                    window.location.reload(); 
                 }
             }
         },
