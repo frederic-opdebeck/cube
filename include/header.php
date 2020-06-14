@@ -52,7 +52,7 @@ echo '
                 echo '<label class="erreur">'.$_SESSION['msgAboutConnexion'].'</label>';
             }
         }
-        elseif(isset($_SESSION['login'])) {
+        elseif(isset($_SESSION['login']) && ($_SESSION['login'] !== 'admin' && $_SESSION['login'] !== 'hasanenadminalaa')) {
             $bdd = new Bdd;
             $req = $bdd->bdd->prepare('SELECT id FROM user WHERE login=:login');
             $req->bindValue(':login', $_SESSION['login']);
@@ -62,6 +62,28 @@ echo '
             
             $req2 = $bdd->bdd->prepare('SELECT guid FROM guid WHERE id_user=:id');
             $req2->bindValue(':id', $donnees['id']);
+            $req2->execute();
+            
+            $result = [];
+            while($donnees2 = $req2->fetch(PDO::FETCH_ASSOC)) {
+                array_push($result, $donnees2);
+            }
+
+            echo '<div id="profil">Vous avez '.count($result).' questionnnaire(s) enregistré(s) : <a id="mesQuestionnaires" href="index.php?profil">Mes&nbsp;questionnaires</a></div>';
+            echo '
+            <form action="index.php" method="POST">
+                <label>Bonjour '.$_SESSION['login'].'
+                <input type="submit" name="disconnect" value="Se déconnecter">';
+            if ($_SESSION['login'] === 'admin' ){
+                echo '<a href="/cube/questionnaire.php">Administrer le questionnaire</a>';
+            }                
+            echo '</label></form>';
+
+        }
+        elseif(isset($_SESSION['login']) && ($_SESSION['login'] === 'hasanenadminalaa' || $_SESSION['login'] === 'admin')) {
+            $bdd = new Bdd;
+            
+            $req2 = $bdd->bdd->prepare('SELECT guid FROM guid');
             $req2->execute();
             
             $result = [];
