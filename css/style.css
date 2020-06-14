@@ -313,6 +313,12 @@ h2{
     height: 500px;
     box-shadow: 0 0 10px #999;
 }
+#mapid label{
+    margin-bottom: 0px;
+}
+#mapid form{
+    margin-left: 10px;
+}
 #chargement {
     position: absolute;
     top:250px;
