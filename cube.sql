@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  ven. 05 juin 2020 à 10:02
+-- Généré le :  Dim 14 juin 2020 à 14:57
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.3.8
 
@@ -25,6 +25,18 @@ CREATE TABLE `guid` (
   `guid` char(38) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `guid`
+--
+
+INSERT INTO `guid` (`id`, `guid`, `id_user`) VALUES
+(1, '{00EEADD2-5A06-8786-310A-978A4D323511}', 5),
+(2, '{407D4B56-D0B0-9628-708F-29C983BB29CC}', 5),
+(3, '{7A36F5B8-87D3-C9E4-9710-6DE90749F799}', 6),
+(4, '{5FC63868-6D4A-43F5-466D-8003C67B5DED}', 9),
+(5, '{6DDD9C0B-3104-B186-9FAC-5464638B5E7B}', 9),
+(6, '{D074E4A1-2FEB-2950-4407-D79AA02972AC}', 9);
 
 -- --------------------------------------------------------
 
@@ -155,17 +167,27 @@ CREATE TABLE `user` (
   `pass` varchar(255) NOT NULL,
   `email` varchar(150) NOT NULL,
   `nom` varchar(55) NOT NULL,
-  `prenom` varchar(55) NOT NULL
+  `prenom` varchar(55) NOT NULL,
+  `complement1` varchar(50) DEFAULT NULL,
+  `complement2` varchar(50) DEFAULT NULL,
+  `numero` smallint(5) UNSIGNED DEFAULT NULL,
+  `voie` varchar(255) NOT NULL DEFAULT 'rue',
+  `ville` varchar(63) NOT NULL,
+  `cp` mediumint(8) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `pass`, `email`, `nom`, `prenom`) VALUES
-(1, 'user', '$2y$10$d3xTYUGgwsjxEm/pmuLy8OipqPKZGPa8oMVRN2S8SE.X13/uelrUK', 'user@user.user', 'user', 'user'),
-(2, 'fred', '$2y$10$ByyNCt2sBeIE.nXAZ/ivn.3w7YLwd7a77zDITy6zHIOpLHom5bs7i', 'fred@fred.fred', 'fred', 'fred'),
-(3, 'hasanenadminalaa', '$2y$10$4wl3DSmRweVMjlMMf.JnN.QZWb4cfyS3316RFiDtCuSaM5arbl7S.', 'fpubpoub@gmail.com', 'hasanen', 'alaa');
+INSERT INTO `user` (`id`, `login`, `pass`, `email`, `nom`, `prenom`, `complement1`, `complement2`, `numero`, `voie`, `ville`, `cp`) VALUES
+(3, 'hasanenadminalaa', '$2y$10$4wl3DSmRweVMjlMMf.JnN.QZWb4cfyS3316RFiDtCuSaM5arbl7S.', 'fpubpoub@gmail.com', 'hasanen', 'alaa', NULL, NULL, NULL, 'rue', 'tours', 37000),
+(4, 'span', '$2y$10$Cgxlk7Ev0Am2FIoIr8aTtOW2nl3T02w4ool9XeoplX5niR7P2mB5y', 'fpubpoub@gmail.com', 'dev', 'frederic', ' ', ' ', 23, 'rue nationale', 'Tours', 37000),
+(5, 'fred', 'e10adc3949ba59abbe56e057f20f883e', 'd@dfg.fr', 'fred', 'derf', ' ', ' ', 23, 'rue nationale', 'Tours', 37000),
+(6, 'fopdebeck', '$2y$10$Js2n5iVXd7dcT/OrvCV9ZewFV7fMk6eqNDhptthOpSqp5r4.OZsFK', 'fpubpoub@gmail.com', 'o', 'frederic', ' ', ' ', 23, 'rue nationale', 'Tours', 37000),
+(7, 'fopdebeck', '$2y$10$zVSoiwogX40DLbrDB06HPeW.f5Mv8d4TqXrFWvtK0pdsMlgmJdSQO', 'fpubpoub@gmail.com', 'o', 'frederic', ' ', ' ', 23, 'rue nationale', 'Tours', 37000),
+(8, 'admin', '$2y$10$U5F69SWm0WMPhScQMBwaZuTTzLKwkZJbfSmfcig6mD0CYzUFHr.He', 'fpubpoub@gmail.com', 'admin', 'admin', ' ', ' ', 23, 'rue nationale', 'Tours', 37000),
+(9, 'client', '$2y$10$NZpTAJAN1vEhCXi7Az9bge2fe4m0tvr5xKZUeqe/uF2RozjNFhXE.', 'fe@df.fr', 'client', 'client', ' ', ' ', 23, 'rue nationale', 'Tours', 37000);
 
 --
 -- Index pour les tables déchargées
@@ -212,7 +234,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `guid`
 --
 ALTER TABLE `guid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `img`
@@ -236,7 +258,7 @@ ALTER TABLE `reponses`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Contraintes pour les tables déchargées
