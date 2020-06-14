@@ -75,8 +75,16 @@ echo '
                 <label>Bonjour '.$_SESSION['login'].'
                 <input type="submit" name="disconnect" value="Se déconnecter">';
             if ($_SESSION['login'] === 'admin' ){
-                echo '<a href="/cube/questionnaire.php">Administrer le questionnaire</a>';
-            }                
+                if($_SERVER['REQUEST_URI'] === '/cube/questionnaire.php'){
+                    echo '<a href="/cube/">Accueil</a>';
+                }else{
+                    echo '<a href="/cube/questionnaire.php">Administrer le questionnaire</a>';
+                }
+            }
+            if (isset($_GET['profil'])){
+                echo '<a href="/cube/">Accueil</a>';
+            }
+
             echo '</label></form>';
 
         }
