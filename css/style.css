@@ -70,12 +70,7 @@ h2{
     color: #00b3bf;
     font-weight: 300;
 }
-.recap{
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: start;
-    align-items: start;
-}
+
 #questionReponses{
     margin-top: 10px;
     padding: 10px;
@@ -85,6 +80,7 @@ h2{
     row-gap: 10px;
 
 }
+
 .q0 h2{
     justify-self: center;
 }
@@ -416,8 +412,9 @@ img.img_bg{
     border:#00b3bf solid 2px;
     padding: 10px 10px;
 }
-.resumeQuestionnaire h1{
-    width: 100%;
+.resumeQuestionnaire h3{
+    
+    margin: 10px auto;
 }
 .titreQ {
     font-weight:bold;
@@ -430,6 +427,10 @@ img.img_bg{
 }
 .resumeQuestion:hover {
     background-color: #00b3bf;
+}
+.recap{
+    margin-left: auto;
+    margin-right: auto;
 }
 .resumeQuestion {
     width: 100%;

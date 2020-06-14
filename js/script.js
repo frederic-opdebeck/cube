@@ -7,25 +7,25 @@ window.addEventListener('DOMContentLoaded',()=>{
 });
 function printResults(r){
     const resume = document.querySelector('.recap')
-    h2 = document.createElement('h2')
-    resume.appendChild(h2)
-        h2.textContent = 'Résumé du questionnaire'
-    const table = document.querySelector('.recapListe')
+    h3 = document.createElement('h3')
+    resume.appendChild(h3)
+    h3.textContent = 'Résumé du questionnaire'
+    // const table = document.querySelector('.recapListe')
     for (let i=0;i<r.length;i++){
-        tr = document.createElement('tr')
-        table.appendChild(tr)
-            th1 = document.createElement('th')
-            tr.appendChild(th1)
-            th1.textContent = r[i].laQuestion
-            th2 = document.createElement('th')
-            tr.appendChild(th2)
+        div = document.createElement('div')
+        div.classList.add("resumeQuestion")
+        resume.appendChild(div)
+            p1 = document.createElement('p')
+            div.appendChild(p1)
+            p1.textContent = r[i].laQuestion
+            p2 = document.createElement('p')
+            div.appendChild(p2)
             if(i===0) {
-                th2.textContent = r[i].adresse
+                p2.textContent = r[i].adresse
             }
             else {
-                th2.textContent = r[i].laReponse
-            }
-            
+                p2.textContent = r[i].laReponse
+            } 
     }
 }
 let arrayJson;

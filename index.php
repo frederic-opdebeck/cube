@@ -13,10 +13,8 @@ else {
                 <div id="mapid"></div>
             </div>
         </div>
-        <div class="recap">
-            <table class="recapListe">
-    
-            </table>
+        <div class="recap resumeQuestionnaire">
+
         </div>
     </section>
     ';  
