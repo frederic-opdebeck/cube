@@ -32,6 +32,9 @@ label{
 #userConnect button{
 margin:0 20px;
 }
+#userConnect label a{
+    margin: 20px;
+}
 header{
     max-width: 100%;
     text-align: right;
