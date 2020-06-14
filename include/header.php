@@ -59,7 +59,7 @@ echo '
                 <label>Bonjour '.$_SESSION['login'].'
                 <input type="submit" name="disconnect" value="Se déconnecter">';
             if ($_SESSION['login'] === 'admin' ){
-                echo '<a href="/questionnaire/">Administrer le questionnaire</a>';
+                echo '<a href="/cube/questionnaire/">Administrer le questionnaire</a>';
             }                
             echo '</label></form>';
 
