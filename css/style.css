@@ -32,8 +32,8 @@ label{
 #userConnect button{
 margin:0 20px;
 }
-#userConnect label a{
-    margin: 20px;
+nav form a{
+    margin: 0 20px;
 }
 header{
     max-width: 100%;
