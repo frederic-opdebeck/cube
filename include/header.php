@@ -10,7 +10,10 @@ require_once('user/userConnect.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+<<<<<<< HEAD
+=======
     <!-- <link rel="stylesheet" href="./css/base.css"> -->
+>>>>>>> af07f76e9eeb76e3c1af2d05669c54e5b59d6b64
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -54,6 +57,23 @@ echo '
             }
         }
         elseif(isset($_SESSION['login'])) {
+            $bdd = new Bdd;
+            $req = $bdd->bdd->prepare('SELECT id FROM user WHERE login=:login');
+            $req->bindValue(':login', $_SESSION['login']);
+            $req->execute();
+            
+            $donnees = $req->fetch(PDO::FETCH_ASSOC);
+            
+            $req2 = $bdd->bdd->prepare('SELECT guid FROM guid WHERE id_user=:id');
+            $req2->bindValue(':id', $donnees['id']);
+            $req2->execute();
+            
+            $result = [];
+            while($donnees2 = $req2->fetch(PDO::FETCH_ASSOC)) {
+                array_push($result, $donnees2);
+            }
+
+            echo '<div id="profil">Vous avez '.count($result).' questionnnaire(s) enregistré(s) : <a id="mesQuestionnaires" href="index.php?profil">Mes questionnaires</a></div>';
             echo '
             <form action="index.php" method="POST">
                 <label>Bonjour '.$_SESSION['login'].'
