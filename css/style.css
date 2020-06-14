@@ -354,14 +354,42 @@ img.img_bg{
     display: grid;
     grid-template-columns: 40% 40%;
     column-gap: 100px;
+    align-items: center;
+    overflow-wrap: break-word;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.titreQ {
+    font-weight:bold;
+    text-align:center;
+    border-bottom:#00b3bf solid 2px;
 }
 .resumeQuestionnaire {
     display: grid;
     grid-template-columns: 100%;
     justify-content: center;
     margin-top:50px;
+    border:#00b3bf solid 2px;
+    margin-right:10px;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;   
 }
 .titreQ {
     font-weight:bold;
     text-align:center;
+    border-bottom:#00b3bf solid 2px;
+    line-height: -10px;
+}
+.quest:hover {
+    background-color: #00b3bf;
+}
+.resumeQuestion {
+    overflow-wrap: break-word;  
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }

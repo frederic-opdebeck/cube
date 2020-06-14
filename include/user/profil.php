@@ -32,7 +32,7 @@ if(isset($_GET['profil'])&&isset($_SESSION['login'])) {
                     echo '
                         
                             <div class="resumeQuestion">
-                                '.$reponse.'
+                                <p>'.$reponse.'</p>
                             </div>
                         
                     
