@@ -434,3 +434,7 @@ img.img_bg{
 div.resumeQuestion:nth-child(2){
     min-height: 110px;
 }
+.resumeQuestion p{
+    margin-top:1px;
+    margin-bottom:1px;
+}
