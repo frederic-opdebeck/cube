@@ -74,11 +74,11 @@ echo '
             <form action="index.php" method="POST">
                 <label>Bonjour '.$_SESSION['login'].'
                 <input type="submit" name="disconnect" value="Se déconnecter">';
-            if ($_SESSION['login'] === 'admin' ){
-                if($_SERVER['REQUEST_URI'] === '/cube/questionnaire.php'){
+            if ($_SESSION['login'] === 'admin' || $_SESSION['login'] === 'hasanenadminalaa'){
+                if($_SERVER['REQUEST_URI'] === './questionnaire.php'){
                     echo '<a href="/cube/">Accueil</a>';
                 }else{
-                    echo '<a href="/cube/questionnaire.php">Administrer le questionnaire</a>';
+                    echo '<a href="../../questionnaire.php">Administrer le questionnaire</a>';
                 }
             }
             if (isset($_GET['profil'])){
@@ -90,7 +90,7 @@ echo '
         }
         elseif(isset($_SESSION['login']) && ($_SESSION['login'] === 'hasanenadminalaa' || $_SESSION['login'] === 'admin')) {
             $bdd = new Bdd;
-            
+
             $req2 = $bdd->bdd->prepare('SELECT guid FROM guid');
             $req2->execute();
             
@@ -104,8 +104,8 @@ echo '
             <form action="index.php" method="POST">
                 <label>Bonjour '.$_SESSION['login'].'
                 <input type="submit" name="disconnect" value="Se déconnecter">';
-            if ($_SESSION['login'] === 'admin' ){
-                echo '<a href="/cube/questionnaire.php">Administrer le questionnaire</a>';
+            if ($_SESSION['login'] === 'admin' || $_SESSION['login'] === 'hasanenadminalaa'){
+                echo '<a href="./questionnaire.php">Administrer le questionnaire</a>';
             }                
             echo '</label></form>';
 
