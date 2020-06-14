@@ -380,9 +380,7 @@ img.img_bg{
     align-items: center;
     margin:50px  10px 0 10px;
     border:#00b3bf solid 2px;
-    padding: 0 10px;
-  
-
+    padding: 10px 10px;
 }
 .quest {
     display: grid;
@@ -404,9 +402,7 @@ img.img_bg{
     align-items: center;
     margin:50px  0px 0 0px;
     border:#00b3bf solid 2px;
-    padding: 0 10px;
-  
- 
+    padding: 10px 10px;
 }
 .resumeQuestionnaire h1{
     width: 100%;

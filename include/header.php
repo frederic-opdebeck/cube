@@ -69,7 +69,7 @@ echo '
                 array_push($result, $donnees2);
             }
 
-            echo '<div id="profil">Vous avez '.count($result).' questionnnaire(s) enregistré(s) : <a id="mesQuestionnaires" href="index.php?profil">Mes questionnaires</a></div>';
+            echo '<div id="profil">Vous avez '.count($result).' questionnnaire(s) enregistré(s) : <a id="mesQuestionnaires" href="index.php?profil">Mes&nbsp;questionnaires</a></div>';
             echo '
             <form action="index.php" method="POST">
                 <label>Bonjour '.$_SESSION['login'].'
