@@ -10,6 +10,10 @@
         margin: 10px;
     }
 }
+#questionReponses img{
+    max-width: 620px;
+    margin: 10px auto;
+}
 img.nest{
     height: 33px !important;
     vertical-align: bottom !important;
