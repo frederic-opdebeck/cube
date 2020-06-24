@@ -12,7 +12,7 @@ class Bdd
         $strBddLogin = "root";
         $strBddPassword = "root";
         $strBddBase = "cube";
-         
+        
         //Création d'un lien à la base de données de type PDO
         try{
             $this->bdd = new PDO('mysql:host='.$strBddServeur.';dbname='.$strBddBase,$strBddLogin,$strBddPassword,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));

@@ -5,9 +5,30 @@
     :root{
         --fontSizeBody: 15px;
     }
+    #userConnect input,
+    #userConnect button{
+        margin: 10px;
+    }
+}
+img.nest{
+    height: 33px !important;
+    vertical-align: bottom !important;
 }
 body{
     min-height:100vh;
+}
+form#showLogo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 1rem;
+}
+div#profil{
+    display: none;
+    align-self: flex-end;
+    width: 100%;
+    padding: 0 1rem;
 }
 body:not(.erreur){
     color: #333;
@@ -409,12 +430,23 @@ img.img_bg{
     justify-content: space-between;
     align-items: flex-start;
     margin:50px  0.5rem 0.5rem 0.5rem;
-    border:#00b3bf solid 2px;
+
     padding: 10px 10px;
+}
+.resumeQuestionnaire > div{
+    border:#00b3bf solid 2px;
 }
 .resumeQuestionnaire h3{
     
     margin: 10px auto;
+}
+.smaller{
+    font-size: 70%;
+    margin-bottom: 0;
+}
+.bigger {
+    width: 140%;
+    margin: 5px;
 }
 .titreQ {
     font-weight:bold;
@@ -452,3 +484,4 @@ div.resumeQuestion:nth-child(2){
     margin-top:1px;
     margin-bottom:1px;
 }
+

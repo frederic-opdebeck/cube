@@ -7,27 +7,33 @@ window.addEventListener('DOMContentLoaded',()=>{
 });
 function printResults(r){
     const resume = document.querySelector('.recap')
-    h3 = document.createElement('h3')
-    resume.appendChild(h3)
-    h3.textContent = 'Résumé du questionnaire'
-    // const table = document.querySelector('.recapListe')
-    for (let i=0;i<r.length;i++){
-        div = document.createElement('div')
-        div.classList.add("resumeQuestion")
-        resume.appendChild(div)
-            p1 = document.createElement('p')
-            div.appendChild(p1)
-            p1.textContent = r[i].laQuestion
-            p2 = document.createElement('p')
-            div.appendChild(p2)
-            if(i===0) {
-                p2.textContent = r[i].adresse
-            }
-            else {
-                p2.textContent = r[i].laReponse
-            } 
-    }
-}
+        divAdd = document.createElement('div')
+        resume.appendChild(divAdd)
+
+
+        h3 = document.createElement('h3')
+        divAdd.appendChild(h3)
+        h3.textContent = ' Résumé des mes préférences'
+        // const table = document.querySelector('.recapListe')
+        for (let i=0;i<r.length;i++){
+            div = document.createElement('div')
+            div.classList.add("resumeQuestion")
+            divAdd.appendChild(div)
+                p1 = document.createElement('p')
+                div.appendChild(p1)
+                p1.textContent = r[i].laQuestion
+                p2 = document.createElement('p')
+                div.appendChild(p2)
+                if(i===0) {
+                    p2.textContent = r[i].adresse
+                }
+                else {
+                    p2.textContent = r[i].laReponse
+                } 
+        }
+        
+};
+
 let arrayJson;
 function ajaxQuestion(id){
     let idQ = id.split('q');

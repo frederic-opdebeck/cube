@@ -26,6 +26,11 @@ echo '
     <nav>
 ';
     if(!isset($_SESSION['login']) && !isset($_GET['register'])){
+        if(!isset($_SESSION['login'])){
+            echo "  <p class='erreur smaller'>
+                        Attention, vous devez être connecté pour enregistrer vos questionnaires
+                    </p>";
+        }
           
             echo   "<div id='userConnect'>
                         <form action='index.php' method='POST'>
@@ -35,18 +40,20 @@ echo '
                             <label name='password'>Mot de passe 
                             <input type='password' id='password' name='password'></label>
 
-                            <input type='submit' value='Se connecter' name='submit'>
+                            <input class='btn btn-secondary' type='submit' value='Se connecter' name='submit'>
                         </form>
                         <button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#exampleModal2'>
                         S'inscrire
                         </button>
-                    </div>";
+                    </div>
+                    <div>
+                    <img class='nest bigger' src='img/logo.png' alt='logo'>
+                    </div>
+                    
+                    ";
+                    
 
-            if(!isset($_SESSION['login'])){
-                echo "  <p style='color:red;margin-right:35px;'>
-                            Attention, vous devez être connecté pour enregistrer vos questionnaires
-                        </p>";
-            }
+
             
             if(isset($_SESSION['msgAboutConnexion'])){
                 echo '<label class="erreur">'.$_SESSION['msgAboutConnexion'].'</label>';
@@ -69,23 +76,28 @@ echo '
                 array_push($result, $donnees2);
             }
 
-            echo '<div id="profil">Vous avez '.count($result).' questionnnaire(s) enregistré(s) : <a id="mesQuestionnaires" href="index.php?profil">Mes&nbsp;questionnaires</a></div>';
+            echo '<div id="profil">
+            <a id="mesQuestionnaires" href="index.php?profil">
+                Mes&nbsp;questionnaires
+            </a>
+        </div>';
             echo '
-            <form action="index.php" method="POST">
-                <label>Bonjour '.$_SESSION['login'].'
+            <form id="showLogo" action="index.php" method="POST">
+                <label>Bonjour '.$_SESSION['login'].' !</label>
+                <img class="nest" src="img/logo.png" alt="logo">
                 <input type="submit" name="disconnect" value="Se déconnecter">';
             if ($_SESSION['login'] === 'admin' || $_SESSION['login'] === 'hasanenadminalaa'){
                 if($_SERVER['REQUEST_URI'] === './questionnaire.php'){
-                    echo '<a href="/cube/">Accueil</a>';
+                    echo '<a href="index.php">Accueil</a>';
                 }else{
                     echo '<a href="../../questionnaire.php">Administrer le questionnaire</a>';
                 }
             }
             if (isset($_GET['profil'])){
-                echo '<a href="/cube/">Accueil</a>';
+                echo '<a href="index.php">Accueil</a>';
             }
 
-            echo '</label></form>';
+            echo '</form>';
 
         }
         elseif(isset($_SESSION['login']) && ($_SESSION['login'] === 'hasanenadminalaa' || $_SESSION['login'] === 'admin')) {
@@ -99,15 +111,19 @@ echo '
                 array_push($result, $donnees2);
             }
 
-            echo '<div id="profil">Vous avez '.count($result).' questionnnaire(s) enregistré(s) : <a id="mesQuestionnaires" href="index.php?profil">Mes&nbsp;questionnaires</a></div>';
+            echo '<div id="profil">
+                    <a id="mesQuestionnaires" href="index.php?profil">
+                        Mes&nbsp;questionnaires
+                    </a>
+                </div>';
             echo '
             <form action="index.php" method="POST">
-                <label>Bonjour '.$_SESSION['login'].'
+                <label>Bonjour '.$_SESSION['login'].'</label>
                 <input type="submit" name="disconnect" value="Se déconnecter">';
             if ($_SESSION['login'] === 'admin' || $_SESSION['login'] === 'hasanenadminalaa'){
                 echo '<a href="./questionnaire.php">Administrer le questionnaire</a>';
             }                
-            echo '</label></form>';
+            echo '</form>';
 
         }
         
