@@ -10,6 +10,9 @@
         margin: 10px;
     }
 }
+input#delimage{
+    width: 25px;
+}
 #questionReponses img{
     max-width: 620px;
     margin: 10px auto;

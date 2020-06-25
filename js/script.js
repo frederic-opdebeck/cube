@@ -284,7 +284,8 @@ function getTileURL(lat, lon, zoom) {
     var ytile = parseInt(Math.floor( (1 - Math.log(Math.tan(lat.toRad()) + 1 / Math.cos(lat.toRad())) / Math.PI) / 2 * (1<<zoom) ));
     return "" + zoom + "/" + xtile + "/" + ytile;
 }
-function go() {
+function go(data) {
+    console.log(data)
     map = L.map("mapid",{crs : L.CRS.EPSG4326,minZoom: 10, maxZoom:18}).setView([48.845, 2.424], 10);
     L.geoportalLayer.WMS({
       layer: "OI.OrthoimageCoverage",
