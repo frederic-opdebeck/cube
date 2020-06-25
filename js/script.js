@@ -62,7 +62,7 @@ const questions = {
         'img' : [arrayJson[0].nom[0]],
         'type': 'radio',
         'carte' : function() {Gp.Services.getConfig({
-            apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
+            apiKey: "ux292jdp2tixe0hq31bjltay",
             onSuccess: go
           })},
         'suite':function (rep){
@@ -308,10 +308,4 @@ function go() {
 
         }
        }).addTo(map);
-    map.on('click', (e) => {
-        
-        console.log(getTileURL(e.latlng.lat, e.latlng.lng, map.getZoom()));
-    })
-    
   }
-  
