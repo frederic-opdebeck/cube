@@ -61,8 +61,8 @@ const questions = {
         'reponses': { 'R1': arrayJson[0].reponse[0]},
         'img' : [arrayJson[0].nom[0]],
         'type': 'radio',
-        'carte' : function() {Gp.Services.getConfig({
-            apiKey: "ux292jdp2tixe0hq31bjltay",
+        'carte' : function() {Gp.Services.getConfig({// jhyvi0fgmnuxvfv0zjzorvdn : cette clé peut devenir incorrecte...
+            apiKey: "jhyvi0fgmnuxvfv0zjzorvdn",
             onSuccess: go
           })},
         'suite':function (rep){
